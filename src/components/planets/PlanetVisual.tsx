@@ -44,6 +44,7 @@ export function PlanetVisual({
         width={1024}
         height={1024}
         priority={priority}
+        loading={priority ? "eager" : "lazy"}
         sizes={`${size}px`}
         className="planet-visual-image relative z-10 h-full w-full object-contain"
       />

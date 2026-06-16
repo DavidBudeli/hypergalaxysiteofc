@@ -60,14 +60,18 @@ export function HeroExperience({ ready }: { ready: boolean }) {
 
           <div className="relative z-10 mx-auto grid min-h-screen max-w-[1280px] items-center px-6 pb-16 pt-28 sm:px-8 lg:grid-cols-[54%_46%] lg:px-10 lg:pt-20">
             <motion.div
-              className="max-w-4xl"
+              className="w-full min-w-0 max-w-4xl"
               style={{ x: headlineX, y: headlineY, opacity: textOpacity }}
             >
               <motion.div style={{ y: labelY }}>
-                <ScrambleLabel text={homepageCopy.hero.label} ready={ready} />
+                <ScrambleLabel
+                  text={homepageCopy.hero.label}
+                  ready={ready}
+                  className="max-w-[calc(100vw-48px)] whitespace-normal text-[10px] leading-5 tracking-[0.22em] sm:text-xs sm:tracking-[0.34em]"
+                />
               </motion.div>
 
-              <h1 className="mt-8 text-[clamp(3.6rem,11vw,8.6rem)] font-black uppercase leading-[0.86] tracking-normal lg:text-[clamp(5.2rem,8.2vw,8.1rem)]">
+              <h1 className="mt-8 w-full max-w-[calc(100vw-48px)] text-[clamp(2.35rem,10.2vw,3.1rem)] font-black uppercase leading-[0.86] tracking-normal sm:text-[clamp(3.6rem,11vw,6rem)] lg:w-[min(64vw,900px)] lg:max-w-none lg:text-[clamp(4.4rem,6.9vw,6.5rem)]">
                 <SplitTextReveal ready={ready} delay={0.08} outline>
                   {homepageCopy.hero.headline[0]}
                 </SplitTextReveal>
@@ -89,11 +93,11 @@ export function HeroExperience({ ready }: { ready: boolean }) {
               </SpringTextReveal>
 
               <SpringTextReveal ready={ready} delay={0.76}>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <MagneticButton href="#iniciar-projeto">
+                <div className="mt-8 flex w-full max-w-[23rem] flex-col gap-4 sm:max-w-none sm:flex-row sm:items-center">
+                  <MagneticButton href="#iniciar-projeto" className="w-full sm:w-auto">
                     {homepageCopy.hero.primaryCta}
                   </MagneticButton>
-                  <MagneticButton href="#plataforma" variant="secondary">
+                  <MagneticButton href="#plataforma" variant="secondary" className="w-full sm:w-auto">
                     {homepageCopy.hero.secondaryCta}
                   </MagneticButton>
                 </div>
@@ -105,7 +109,7 @@ export function HeroExperience({ ready }: { ready: boolean }) {
             <div className="hidden lg:block" aria-hidden="true" />
           </div>
 
-          <PlanetSystem transitionProgress={scrollYProgress} />
+          {ready ? <PlanetSystem transitionProgress={scrollYProgress} /> : null}
 
           <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
             <motion.div

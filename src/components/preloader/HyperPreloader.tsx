@@ -17,6 +17,8 @@ const criticalAssets = [
   "/assets/planets/hyper-cloud.webp",
 ];
 
+const MINIMUM_PRELOAD_MS = 1450;
+
 export function HyperPreloader({
   onComplete,
 }: {
@@ -33,6 +35,9 @@ export function HyperPreloader({
     let cancelled = false;
     let loaded = 0;
     const total = criticalAssets.length + 1;
+    const minimumDelay = new Promise<void>((resolve) => {
+      window.setTimeout(resolve, MINIMUM_PRELOAD_MS);
+    });
 
     const markLoaded = () => {
       loaded += 1;
@@ -58,7 +63,7 @@ export function HyperPreloader({
         }),
     );
 
-    Promise.all([fontPromise, ...imagePromises]).then(() => {
+    Promise.all([minimumDelay, fontPromise, ...imagePromises]).then(() => {
       window.setTimeout(() => {
         if (!cancelled) {
           setProgress(100);
@@ -77,7 +82,7 @@ export function HyperPreloader({
     <AnimatePresence>
       {!complete ? (
         <motion.div
-          className="fixed inset-0 z-[90] flex items-center justify-center overflow-hidden bg-[#050507] text-[#F6F4EF]"
+          className="pointer-events-none fixed inset-0 z-[90] flex items-center justify-center overflow-hidden bg-[#050507] text-[#F6F4EF]"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.04 }}
           transition={{
@@ -117,7 +122,7 @@ export function HyperPreloader({
 
             <motion.div
               className="mt-8"
-              animate={{ opacity: progress >= 100 ? 0 : 1, y: progress >= 100 ? -8 : 0 }}
+              animate={{ opacity: complete ? 0 : 1, y: complete ? -8 : 0 }}
               transition={{ duration: motionTokens.durations.fast }}
             >
               <Wordmark />
@@ -125,7 +130,7 @@ export function HyperPreloader({
 
             <motion.div
               className="mt-8 h-px w-56 overflow-hidden bg-white/10"
-              animate={{ opacity: progress >= 100 ? 0 : 1 }}
+              animate={{ opacity: complete ? 0 : 1 }}
             >
               <motion.div
                 className="h-full bg-[#C4B5FD]"
@@ -135,7 +140,7 @@ export function HyperPreloader({
             </motion.div>
             <motion.p
               className="mt-4 font-mono text-xs font-bold tracking-[0.3em] text-white/54"
-              animate={{ opacity: progress >= 100 ? 0 : 1 }}
+              animate={{ opacity: complete ? 0 : 1 }}
             >
               {progress.toString().padStart(3, "0")}%
             </motion.p>

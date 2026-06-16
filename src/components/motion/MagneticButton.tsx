@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import type { AnchorHTMLAttributes, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useRef } from "react";
 
 import { motionTokens } from "@/config/motion-tokens";
 import { cn } from "@/lib/cn";
 
-type MagneticButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+type MagneticButtonProps = HTMLMotionProps<"a"> & {
   children: ReactNode;
   variant?: "primary" | "secondary";
 };

@@ -1,60 +1,61 @@
 # Motion Audit
 
-## Status
+Status: Checkpoint 1 motion complete.
 
-Motion implementation has not started. This file records the reference behavior
-and the token decisions for Checkpoint 1.
+Date: 2026-06-16
 
-## Reference Behaviors To Preserve
+## Implemented Motion System
 
-- Entry should feel connected to the hero rather than a hard cut.
-- Headline should enter by lines/words with stagger and occasional scramble.
-- Planets should float independently and never sync.
-- Hover should change object state, cursor state, and focus emphasis together.
-- Header should transition on scroll.
-- First transition should use sweep/radial expansion, not a simple fade.
-- Mobile should reduce density, not remove motion entirely.
+Token source: `src/config/motion-tokens.ts`.
 
-## Token Source
-
-See `src/config/motion-tokens.ts`.
-
-Mandatory values from the master spec are present:
-
-- `easings.enter`
-- `easings.route`
-- `easings.smooth`
-- `easings.standard`
-- `durations.instant`
-- `durations.fast`
-- `durations.pageEnter`
-- `durations.routeOverlay`
-- `durations.slow`
-- `durations.sweep`
-- `durations.blast`
-- `springs.headline`
-- `springs.hover`
-- `springs.soft`
-- `stagger.letters`
-- `stagger.words`
-- `stagger.lines`
-- `stagger.planets`
-- `stagger.cards`
-- `stagger.menu`
-- `drag`
-
-## Planned Checkpoint 1 Motion Components
+Implemented Checkpoint 1 primitives:
 
 - `SplitTextReveal`
 - `SpringTextReveal`
-- `MaskReveal`
-- `ScrambleText`
+- `ScrambleLabel`
 - `MagneticButton`
 - `CustomCursor`
 - `AnimationPauser`
 - `SmoothScrollProvider`
-- `SectionTransition`
+- `ReducedMotionProvider`
 
-`DragRail`, `FlipCard`, `Marquee`, `CounterReveal`, `ScrollTextReveal`, and
-`VelocityShift` remain planned for later checkpoints unless the first transition
-requires a small shared primitive.
+Implemented Checkpoint 1 experiences:
+
+- Preloader planet rotation, progress reveal, wordmark fade, and route overlay exit.
+- Header entrance and scroll-state transition.
+- Hero label scramble and line-by-line headline spring reveal.
+- CTA spring hover/tap behavior.
+- Desktop planets with independent float, staggered entrance, hover focus, active preview, and scroll scatter/growth.
+- Mobile planet swipe rail with snap and active indicator.
+- First transition with sticky hero scene, radial sweep, and fade-in destination band.
+- Fullscreen mobile menu with clipped overlay transition and staggered link entrance.
+
+## Performance Controls
+
+- `AnimationPauser` uses `IntersectionObserver` and `MutationObserver`.
+- Motion is disabled or reduced through reduced-motion hooks/providers.
+- Cursor movement uses refs and `requestAnimationFrame`, not React state per pointer event.
+- Continuous planet effects are CSS transform/opacity driven.
+- No canvas, video background, heavy particle system, or WebGL layer is used.
+
+## Deferred Motion Work
+
+The following remain for later checkpoints:
+
+- `DragRail`
+- `FlipCard`
+- `Marquee`
+- `CounterReveal`
+- `ScrollTextReveal`
+- `VelocityShift`
+- Region 2 comparison mask/drag
+- Region 6 flip cards
+- Region 8 marketplace momentum/snap rail
+- Region 9 sticky platform storytelling
+
+## Validation
+
+- Browser screenshots captured for all required Checkpoint 1 desktop and mobile viewports.
+- Mobile menu interaction validated after fixing preloader pointer-event interception.
+- `npm.cmd run lint`: passed.
+- `npm.cmd run build`: passed.
