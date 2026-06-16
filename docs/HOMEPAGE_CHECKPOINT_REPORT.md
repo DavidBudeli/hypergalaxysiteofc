@@ -1,6 +1,6 @@
 # Homepage Checkpoint Report
 
-Status: Checkpoint 1 complete; full homepage intentionally incomplete.
+Status: Checkpoint 1 approved; full homepage intentionally incomplete.
 
 Branch: `feat/checkpoint-1-experience`
 
@@ -15,16 +15,16 @@ The public homepage currently includes only the Checkpoint 1 experience:
 - Hero.
 - Planet system.
 - Custom cursor.
-- First transition stub into the next region.
-- Mobile hero and mobile navigation behavior.
+- First transition into a partial next-region destination.
+- Mobile hero, mobile menu, and mobile planet swipe.
 
-The second visible section is only a transition destination placeholder. It is not the Checkpoint 2 interactive reveal implementation.
+The second visible section is only a transition destination. It is not the Checkpoint 2 interactive reveal.
 
 ## Checkpoint Boundaries
 
 | Region | Status |
 | --- | --- |
-| Region 1 - Hero | Complete for Checkpoint 1 |
+| Region 1 - Hero | Approved for Checkpoint 1 |
 | Region 2 - Reveal interativo | Not started |
 | Region 3 - Company presentation | Not started |
 | Region 4 - Technology marquee | Not started |
@@ -37,17 +37,64 @@ The second visible section is only a transition destination placeholder. It is n
 | Region 11 - Nova | Not started |
 | Region 12 - Final CTA / footer | Not started |
 
-## Validation Summary
+## Visual Comparison
+
+The reference site `https://www.helloupdigital.com/` was opened and captured for comparison at:
+
+- 1920 x 1080
+- 1440 x 900
+- 1366 x 768
+- 430 x 932
+- 390 x 844
+- 360 x 800
+
+The Hyper Galaxy implementation follows the reference quality targets for black field, large mixed typography, left editorial copy, right planetary composition, motion rhythm, cursor behavior, and mobile stacking. It does not copy the reference text, brand, assets, or code.
+
+## Final Validation Summary
+
+Final validation source:
+
+- `docs/checkpoint-1-screenshots/validation-results.json`
+
+Results:
 
 - Desktop viewports validated: 1920 x 1080, 1440 x 900, 1366 x 768.
 - Mobile viewports validated: 430 x 932, 390 x 844, 360 x 800.
-- No horizontal overflow detected in validated viewports.
+- Required screenshots generated: 10.
+- Additional interaction screenshots generated: 3.
+- Console events: 0.
+- Failed network responses: 0.
+- Visible image issues: 0.
+- Horizontal overflow: none in validated viewports.
+- Mobile menu: opens, no horizontal overflow, cursor disabled.
+- Mobile swipe: rail present and movement recorded.
+- Planet Lab: all seven required planets visible and named.
+- First transition: destination section opacity reached 1.
+
+## Corrections Included In This Pass
+
+- Copied and read `HYPERGALAXY_CONTINUACAO_COMPLETA.pdf`.
+- Added favicon and metadata icon.
+- Disabled Next dev indicator in project config.
+- Fixed first transition progress mapping.
+- Disabled custom cursor on mobile.
+- Rendered desktop and mobile planet systems conditionally by viewport.
+- Prioritized visible planet images to remove LCP warnings.
+- Added full Planet Lab overview and refreshed screenshots.
+- Replaced technical transition placeholder copy with neutral copy.
+- Styled dark scrollbars.
+
+## Technical Validation
+
+Final command results:
+
 - `npm.cmd run lint`: passed.
 - `npm.cmd run build`: passed.
+- `git status`: completed before commit; working tree contained only intended Checkpoint 1 changes.
 
 ## Next Allowed Work
 
-Only after Checkpoint 1 approval, the next implementation pass may begin Checkpoint 2:
+Only after this Checkpoint 1 approval is accepted, the next implementation pass may begin Checkpoint 2:
 
 - Reveal interativo.
 - Company presentation.

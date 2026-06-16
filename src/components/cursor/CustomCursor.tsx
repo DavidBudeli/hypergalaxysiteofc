@@ -20,7 +20,7 @@ export function CustomCursor() {
   const visible = useRef(false);
 
   useEffect(() => {
-    const finePointer = window.matchMedia("(pointer: fine)");
+    const finePointer = window.matchMedia("(pointer: fine) and (min-width: 1024px)");
 
     if (!finePointer.matches) {
       return;

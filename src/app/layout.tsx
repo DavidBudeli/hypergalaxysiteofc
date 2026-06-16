@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   title: "Hyper Galaxy",
   description:
     "Fundacao oficial da nova experiencia publica da Hyper Galaxy.",
+  icons: {
+    icon: [
+      {
+        url: "/assets/brand/hyper-galaxy-wordmark.svg",
+        type: "image/svg+xml",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

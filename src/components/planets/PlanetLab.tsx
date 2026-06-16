@@ -22,6 +22,21 @@ export function PlanetLab() {
         </p>
       </header>
 
+      <section className="mx-auto mt-8 grid max-w-7xl grid-cols-2 gap-3 border border-white/10 bg-white/[0.02] p-4 sm:grid-cols-4 lg:grid-cols-7">
+        {planetsConfig.map((planet) => (
+          <div
+            key={`${planet.id}-overview`}
+            className="flex min-h-52 flex-col items-center justify-center bg-black/35 p-3 text-center"
+          >
+            <PlanetVisual planet={planet} size={118} priority />
+            <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#93C5FD]">
+              {planet.label}
+            </p>
+            <p className="mt-2 text-sm font-semibold leading-tight">{planet.name}</p>
+          </div>
+        ))}
+      </section>
+
       <section className="mx-auto mt-8 grid max-w-7xl gap-5">
         {planetsConfig.map((planet) => (
           <article
@@ -69,13 +84,23 @@ export function PlanetLab() {
 
             <div className="grid gap-5 lg:grid-cols-3">
               <PlanetSample title="Normal / grande">
-                <PlanetVisual planet={planet} size={190} />
+                <PlanetVisual planet={planet} size={190} priority />
               </PlanetSample>
               <PlanetSample title="Hover / medio">
-                <PlanetVisual planet={planet} size={142} variant="hover" />
+                <PlanetVisual
+                  planet={planet}
+                  size={142}
+                  variant="hover"
+                  priority
+                />
               </PlanetSample>
               <PlanetSample title="Ativo / mobile">
-                <PlanetVisual planet={planet} size={104} variant="active" />
+                <PlanetVisual
+                  planet={planet}
+                  size={104}
+                  variant="active"
+                  priority
+                />
               </PlanetSample>
             </div>
           </article>

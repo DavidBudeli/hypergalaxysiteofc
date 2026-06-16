@@ -155,7 +155,7 @@ function PlanetOrbit({
           planet={planet}
           size={planet.size.desktop}
           variant={active ? "active" : "normal"}
-          priority={planet.id === "hyper-flow"}
+          priority
         />
       </motion.div>
       <span className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-white/42">

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { homepageCopy } from "@/config/homepage.config";
 import { motionTokens } from "@/config/motion-tokens";
@@ -16,18 +16,32 @@ import { MobilePlanetSwipe } from "./MobilePlanetSwipe";
 export function HeroExperience({ ready }: { ready: boolean }) {
   const sectionRef = useRef<HTMLElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
+  const [viewportMode, setViewportMode] = useState<"desktop" | "mobile" | "unknown">("unknown");
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
+  const transitionProgress = useTransform(scrollYProgress, [0, 0.42], [0, 1]);
 
-  const headlineY = useTransform(scrollYProgress, [0, 0.55], [0, -88]);
-  const headlineX = useTransform(scrollYProgress, [0, 0.55], [0, -28]);
-  const labelY = useTransform(scrollYProgress, [0, 0.55], [0, -42]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.64], [1, 0.26]);
-  const sweepScale = useTransform(scrollYProgress, [0.26, 0.82], [0, 1.55]);
-  const sweepOpacity = useTransform(scrollYProgress, [0.22, 0.44, 0.86], [0, 0.7, 0]);
-  const nextOpacity = useTransform(scrollYProgress, [0.54, 0.94], [0, 1]);
+  const headlineY = useTransform(transitionProgress, [0, 0.55], [0, -88]);
+  const headlineX = useTransform(transitionProgress, [0, 0.55], [0, -28]);
+  const labelY = useTransform(transitionProgress, [0, 0.55], [0, -42]);
+  const textOpacity = useTransform(transitionProgress, [0, 0.64], [1, 0.26]);
+  const sweepScale = useTransform(transitionProgress, [0.26, 0.82], [0, 1.55]);
+  const sweepOpacity = useTransform(transitionProgress, [0.22, 0.44, 0.86], [0, 0.7, 0]);
+  const nextOpacity = useTransform(transitionProgress, [0.54, 0.94], [0, 1]);
+
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    const updateViewportMode = () => {
+      setViewportMode(desktopQuery.matches ? "desktop" : "mobile");
+    };
+
+    updateViewportMode();
+    desktopQuery.addEventListener("change", updateViewportMode);
+
+    return () => desktopQuery.removeEventListener("change", updateViewportMode);
+  }, []);
 
   return (
     <>
@@ -103,13 +117,15 @@ export function HeroExperience({ ready }: { ready: boolean }) {
                 </div>
               </SpringTextReveal>
 
-              <MobilePlanetSwipe />
+              {viewportMode === "mobile" ? <MobilePlanetSwipe /> : null}
             </motion.div>
 
             <div className="hidden lg:block" aria-hidden="true" />
           </div>
 
-          {ready ? <PlanetSystem transitionProgress={scrollYProgress} /> : null}
+          {ready && viewportMode === "desktop" ? (
+            <PlanetSystem transitionProgress={transitionProgress} />
+          ) : null}
 
           <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
             <motion.div
@@ -121,7 +137,7 @@ export function HeroExperience({ ready }: { ready: boolean }) {
       </section>
 
       <motion.section
-        className="relative -mt-[72vh] min-h-[72vh] overflow-hidden bg-[#F6F4EF] px-6 py-24 text-[#050507] sm:px-8 lg:px-10"
+        className="relative z-30 -mt-[72vh] min-h-[72vh] overflow-hidden bg-[#F6F4EF] px-6 py-24 text-[#050507] sm:px-8 lg:px-10"
         style={{ opacity: nextOpacity }}
       >
         <div className="mx-auto max-w-[1280px]">
@@ -132,8 +148,8 @@ export function HeroExperience({ ready }: { ready: boolean }) {
             Seu proximo nivel esta aqui dentro.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#17181E]/68">
-            A transicao da hero termina aqui. A experiencia interativa completa
-            desta regiao fica para o Checkpoint 2.
+            A proxima regiao permanece apenas sugerida nesta etapa, preservando
+            o foco na hero e no primeiro movimento de entrada.
           </p>
         </div>
         <motion.div

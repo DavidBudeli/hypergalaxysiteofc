@@ -1,8 +1,10 @@
 # Motion Audit
 
-Status: Checkpoint 1 motion complete.
+Status: Checkpoint 1 approved after final corrections.
 
 Date: 2026-06-16
+
+Branch: `feat/checkpoint-1-experience`
 
 ## Implemented Motion System
 
@@ -21,22 +23,44 @@ Implemented Checkpoint 1 primitives:
 
 Implemented Checkpoint 1 experiences:
 
-- Preloader planet rotation, progress reveal, wordmark fade, and route overlay exit.
+- Preloader with black field, planet motion, wordmark, progress, and no video.
 - Header entrance and scroll-state transition.
-- Hero label scramble and line-by-line headline spring reveal.
-- CTA spring hover/tap behavior.
-- Desktop planets with independent float, staggered entrance, hover focus, active preview, and scroll scatter/growth.
-- Mobile planet swipe rail with snap and active indicator.
-- First transition with sticky hero scene, radial sweep, and fade-in destination band.
-- Fullscreen mobile menu with clipped overlay transition and staggered link entrance.
+- Label scramble, line-by-line headline reveal, and CTA entrance.
+- Desktop planet stagger, independent float, hover state, active preview, scroll scatter, and active planet growth.
+- Mobile snap rail with horizontal swipe and active indicator.
+- First transition with headline displacement, planet scatter/growth, radial sweep, background change, and destination reveal.
+- Fullscreen mobile menu with clip-path opening and staggered links.
+- Custom cursor dot/ring with `EXPLORAR`, `ARRASTE`, and `ABRIR` labels on desktop only.
 
-## Performance Controls
+## Problems Found And Fixes
 
-- `AnimationPauser` uses `IntersectionObserver` and `MutationObserver`.
-- Motion is disabled or reduced through reduced-motion hooks/providers.
-- Cursor movement uses refs and `requestAnimationFrame`, not React state per pointer event.
-- Continuous planet effects are CSS transform/opacity driven.
-- No canvas, video background, heavy particle system, or WebGL layer is used.
+- First transition initially behaved too close to a fade because scroll progress did not reach the transform range. Added a normalized `transitionProgress` transform and wired headline, sweep, opacity, and planet scatter to it.
+- Mobile custom cursor was active in headless/mobile validation. Cursor activation now requires fine pointer and desktop width.
+- Hidden desktop/mobile planet systems were both mounted, causing unnecessary image behavior. Hero now renders desktop planets only on desktop and mobile swipe only on mobile.
+- LCP warnings were raised for above-the-fold planet images. Prioritized/eager loading was added for the relevant rendered planet sets.
+- The destination copy mentioned implementation checkpoints. It now remains a neutral partial-region teaser.
+
+## Final Validation
+
+Final browser validation file:
+
+- `docs/checkpoint-1-screenshots/validation-results.json`
+
+Final automated results:
+
+- Screenshots generated: 13
+- Console events: 0
+- Failed network responses: 0
+- Visible image issues: 0
+- Mobile swipe: rail present, `scrollLeft` recorded at 258
+- First transition destination opacity: 1
+- Planet Lab names present: Nova, Hyper Agents, Hyper Cloud, Hyper Flow, Hyper Dev, Hyper Support, Hyper Connect
+
+## Remaining Motion Limitations
+
+- Video evidence was not committed; motion proof is represented by interaction screenshots and validation JSON.
+- The next region is intentionally a partial transition destination, not a complete Checkpoint 2 reveal.
+- The motion quality is strong enough for Checkpoint 1, but still short of a fully choreographed multi-region homepage system.
 
 ## Deferred Motion Work
 
@@ -52,10 +76,3 @@ The following remain for later checkpoints:
 - Region 6 flip cards
 - Region 8 marketplace momentum/snap rail
 - Region 9 sticky platform storytelling
-
-## Validation
-
-- Browser screenshots captured for all required Checkpoint 1 desktop and mobile viewports.
-- Mobile menu interaction validated after fixing preloader pointer-event interception.
-- `npm.cmd run lint`: passed.
-- `npm.cmd run build`: passed.
