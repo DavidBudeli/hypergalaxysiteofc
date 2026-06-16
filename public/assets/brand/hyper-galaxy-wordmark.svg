@@ -1,0 +1,7 @@
+<svg width="220" height="64" viewBox="0 0 220 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hyper Galaxy">
+  <path d="M24 9C32.8366 9 40 16.1634 40 25C40 33.8366 32.8366 41 24 41C15.1634 41 8 33.8366 8 25C8 16.1634 15.1634 9 24 9Z" stroke="#8B5CF6" stroke-width="3"/>
+  <path d="M7 34C24 48 46 50 58 38" stroke="#93C5FD" stroke-width="3" stroke-linecap="round"/>
+  <path d="M19 25H30M24.5 17V33" stroke="#F6F4EF" stroke-width="3" stroke-linecap="round"/>
+  <text x="74" y="28" fill="#F6F4EF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" letter-spacing="2">HYPER</text>
+  <text x="74" y="50" fill="#B9BBC5" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" letter-spacing="2">GALAXY</text>
+</svg>
