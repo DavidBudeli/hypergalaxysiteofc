@@ -14,9 +14,13 @@ export type PlanetConfig = {
   name: string;
   label: string;
   visualType: string;
+  category: string;
+  description: string;
   asset: {
     src: string;
-    status: "pending-final-asset";
+    mobileSrc: string;
+    thumbSrc: string;
+    status: "approved" | "pending-final-asset";
     minimumSize: "1024x1024";
   };
   position: {
@@ -46,9 +50,13 @@ export const planetsConfig: PlanetConfig[] = [
     name: "Nova",
     label: "01",
     visualType: "energy planet",
+    category: "AI assistant core",
+    description: "Campo energetico magenta e violeta com pontos luminosos para representar inteligencia artificial.",
     asset: {
       src: "/assets/planets/nova.webp",
-      status: "pending-final-asset",
+      mobileSrc: "/assets/planets/nova-mobile.webp",
+      thumbSrc: "/assets/planets/nova-thumb.webp",
+      status: "approved",
       minimumSize: "1024x1024",
     },
     position: {
@@ -68,9 +76,13 @@ export const planetsConfig: PlanetConfig[] = [
     name: "Hyper Agents",
     label: "02",
     visualType: "oceanic planet",
+    category: "AI agents",
+    description: "Planeta azul com redes e regioes luminosas para sugerir atividade autonoma.",
     asset: {
       src: "/assets/planets/hyper-agents.webp",
-      status: "pending-final-asset",
+      mobileSrc: "/assets/planets/hyper-agents-mobile.webp",
+      thumbSrc: "/assets/planets/hyper-agents-thumb.webp",
+      status: "approved",
       minimumSize: "1024x1024",
     },
     position: {
@@ -90,9 +102,13 @@ export const planetsConfig: PlanetConfig[] = [
     name: "Hyper Cloud",
     label: "03",
     visualType: "cloud planet",
+    category: "Cloud infrastructure",
+    description: "Turquesa com camadas volumetricas de nuvens e atmosfera evidente.",
     asset: {
       src: "/assets/planets/hyper-cloud.webp",
-      status: "pending-final-asset",
+      mobileSrc: "/assets/planets/hyper-cloud-mobile.webp",
+      thumbSrc: "/assets/planets/hyper-cloud-thumb.webp",
+      status: "approved",
       minimumSize: "1024x1024",
     },
     position: {
@@ -112,9 +128,13 @@ export const planetsConfig: PlanetConfig[] = [
     name: "Hyper Flow",
     label: "04",
     visualType: "ringed gas planet",
+    category: "Automation flow",
+    description: "Planeta principal com aneis, faixas organicas e nucleo visual quente.",
     asset: {
       src: "/assets/planets/hyper-flow.webp",
-      status: "pending-final-asset",
+      mobileSrc: "/assets/planets/hyper-flow-mobile.webp",
+      thumbSrc: "/assets/planets/hyper-flow-thumb.webp",
+      status: "approved",
       minimumSize: "1024x1024",
     },
     position: {
@@ -134,9 +154,13 @@ export const planetsConfig: PlanetConfig[] = [
     name: "Hyper Dev",
     label: "05",
     visualType: "rocky planet",
+    category: "Software engineering",
+    description: "Lavanda e rosa com relevo rochoso, crateras e placas geometricas sutis.",
     asset: {
       src: "/assets/planets/hyper-dev.webp",
-      status: "pending-final-asset",
+      mobileSrc: "/assets/planets/hyper-dev-mobile.webp",
+      thumbSrc: "/assets/planets/hyper-dev-thumb.webp",
+      status: "approved",
       minimumSize: "1024x1024",
     },
     position: {
@@ -156,9 +180,13 @@ export const planetsConfig: PlanetConfig[] = [
     name: "Hyper Support",
     label: "06",
     visualType: "planet with moon",
+    category: "Support operations",
+    description: "Azul profundo com superficie estavel, orbita curta e lua propria.",
     asset: {
       src: "/assets/planets/hyper-support.webp",
-      status: "pending-final-asset",
+      mobileSrc: "/assets/planets/hyper-support-mobile.webp",
+      thumbSrc: "/assets/planets/hyper-support-thumb.webp",
+      status: "approved",
       minimumSize: "1024x1024",
     },
     position: {
@@ -178,9 +206,13 @@ export const planetsConfig: PlanetConfig[] = [
     name: "Hyper Connect",
     label: "07",
     visualType: "deep blue gas planet",
+    category: "APIs and integrations",
+    description: "Verde azulado com rotas discretas, pontos e satelite para conexoes.",
     asset: {
       src: "/assets/planets/hyper-connect.webp",
-      status: "pending-final-asset",
+      mobileSrc: "/assets/planets/hyper-connect-mobile.webp",
+      thumbSrc: "/assets/planets/hyper-connect-thumb.webp",
+      status: "approved",
       minimumSize: "1024x1024",
     },
     position: {

@@ -27,4 +27,142 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  scrollbar-color: rgba(246, 244, 239, 0.26) #050507;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(246, 244, 239, 0.24);
+  border: 2px solid #050507;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(196, 181, 253, 0.42);
+}
+
+@media (pointer: fine) {
+  body[data-custom-cursor="true"] {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.36);
+  color: var(--foreground);
+}
+
+.is-paused *,
+.is-paused *::before,
+.is-paused *::after {
+  animation-play-state: paused !important;
+}
+
+.planet-visual {
+  width: var(--planet-size);
+  height: var(--planet-size);
+  border-radius: 999px;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.42));
+  transition:
+    transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.planet-visual-image {
+  animation: planet-asset-drift var(--surface-speed, 16s) ease-in-out infinite alternate;
+}
+
+.planet-visual-atmosphere {
+  position: absolute;
+  inset: 9%;
+  z-index: 3;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--planet-atmosphere) 62%, transparent);
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--planet-atmosphere) 42%, transparent),
+    0 0 52px color-mix(in srgb, var(--planet-accent) 24%, transparent);
+  opacity: 0.78;
+  pointer-events: none;
+}
+
+.planet-visual-terminator {
+  position: absolute;
+  inset: 12%;
+  z-index: 4;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.16), transparent 20%),
+    linear-gradient(108deg, transparent 0 38%, rgba(0, 0, 0, 0.14) 54%, rgba(0, 0, 0, 0.5) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.68;
+  pointer-events: none;
+}
+
+.planet-visual-surface {
+  position: absolute;
+  inset: 15%;
+  z-index: 5;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--planet-atmosphere) 18%, transparent), transparent),
+    repeating-linear-gradient(176deg, transparent 0 9px, rgba(255, 255, 255, 0.055) 10px 11px);
+  mix-blend-mode: screen;
+  opacity: 0.28;
+  pointer-events: none;
+  animation: planet-surface-shift var(--surface-speed, 16s) linear infinite;
+}
+
+.planet-visual-hover,
+.planet-visual:hover {
+  transform: scale(1.08);
+  filter:
+    drop-shadow(0 22px 34px rgba(0, 0, 0, 0.46))
+    drop-shadow(0 0 26px color-mix(in srgb, var(--planet-accent) 38%, transparent));
+}
+
+.planet-visual-active {
+  transform: scale(1.12);
+  filter:
+    drop-shadow(0 28px 40px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 34px color-mix(in srgb, var(--planet-accent) 52%, transparent));
+}
+
+.hero-outline-text {
+  -webkit-text-stroke: 1.5px rgba(246, 244, 239, 0.82);
+  text-stroke: 1.5px rgba(246, 244, 239, 0.82);
+}
+
+@keyframes planet-surface-shift {
+  from {
+    transform: translateX(-10%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(10%) rotate(8deg);
+  }
+}
+
+@keyframes planet-asset-drift {
+  from {
+    transform: translate3d(-1.4%, -0.8%, 0) scale(1.012);
+  }
+
+  to {
+    transform: translate3d(1.2%, 0.9%, 0) scale(1.018);
+  }
+}
+
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

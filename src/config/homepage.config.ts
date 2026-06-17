@@ -1,10 +1,10 @@
 export const homepageCopy = {
   hero: {
     label: "AI · SOFTWARE · CLOUD · AUTOMATION",
-    headline: ["CONSTRUIMOS", "SISTEMAS", "PARA EMPRESAS", "IREM ALEM."],
+    headline: ["CONSTRUÍMOS", "SISTEMAS", "PARA EMPRESAS", "IREM ALÉM."],
     description:
-      "Software, agentes de IA, automacao e infraestrutura cloud para operacoes que querem crescer.",
-    primaryCta: "INICIAR PROJETO ->",
+      "Software, agentes de IA, automação e infraestrutura cloud para operações que querem crescer.",
+    primaryCta: "INICIAR PROJETO",
     secondaryCta: "EXPLORAR PLATAFORMA",
   },
 } as const;
