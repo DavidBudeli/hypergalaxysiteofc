@@ -1,78 +1,93 @@
 # Motion Audit
 
-Status: Checkpoint 1 approved after final corrections.
+Status: Checkpoint 2 implemented and ready for visual approval.
 
-Date: 2026-06-16
+Date: 2026-06-17
 
-Branch: `feat/checkpoint-1-experience`
+Branch: `feat/checkpoint-2-experience`
 
-## Implemented Motion System
+## Motion System
 
 Token source: `src/config/motion-tokens.ts`.
 
-Implemented Checkpoint 1 primitives:
+Checkpoint 1 motion preserved:
 
-- `SplitTextReveal`
-- `SpringTextReveal`
-- `ScrambleLabel`
-- `MagneticButton`
-- `CustomCursor`
-- `AnimationPauser`
-- `SmoothScrollProvider`
-- `ReducedMotionProvider`
+- Preloader with black field, progress, planet motion, wordmark, and continuous handoff.
+- Header entrance, scroll-state change, and fullscreen mobile menu.
+- Hero label scramble, headline reveal, CTA entrance, desktop planet stagger, independent float, hover, active planet, mobile swipe, custom cursor, radial sweep, and first transition.
 
-Implemented Checkpoint 1 experiences:
+Checkpoint 2 primitives added:
 
-- Preloader with black field, planet motion, wordmark, progress, and no video.
-- Header entrance and scroll-state transition.
-- Label scramble, line-by-line headline reveal, and CTA entrance.
-- Desktop planet stagger, independent float, hover state, active preview, scroll scatter, and active planet growth.
-- Mobile snap rail with horizontal swipe and active indicator.
-- First transition with headline displacement, planet scatter/growth, radial sweep, background change, and destination reveal.
-- Fullscreen mobile menu with clip-path opening and staggered links.
-- Custom cursor dot/ring with `EXPLORAR`, `ARRASTE`, and `ABRIR` labels on desktop only.
+- `MaskReveal`
+- `DragReveal`
+- `Marquee`
+- `CounterReveal`
+- `FlipCard`
+- `ScrollTextReveal`
+- `SectionTransition`
+
+## Region Motion Results
+
+| Region | Primary interaction | Result |
+| --- | --- | --- |
+| Region 2 - Reveal | Cursor mask, drag handle, range input, accessible buttons | Passed. The reveal responds immediately and is not a generic two-image slider. |
+| Region 3 - Company | Editorial text reveal and section transition | Passed. Clear rhythm change from hero, with subtle Nova presence only. |
+| Region 4 - Marquee | Continuous two-row motion, reverse direction, hover pause, reduced-motion pause | Passed. Normal state measured as `running`; reduced motion measured at `0.001s`. |
+| Region 5 - Metrics | Scroll reveal and large counter/scale typography | Passed. Uses capabilities only, no invented commercial metrics. |
+| Region 6 - Services | Flip, hover, tilt, focus, tap reveal, CTA on back | Passed after tab-order correction. |
 
 ## Problems Found And Fixes
 
-- First transition initially behaved too close to a fade because scroll progress did not reach the transform range. Added a normalized `transitionProgress` transform and wired headline, sweep, opacity, and planet scatter to it.
-- Mobile custom cursor was active in headless/mobile validation. Cursor activation now requires fine pointer and desktop width.
-- Hidden desktop/mobile planet systems were both mounted, causing unnecessary image behavior. Hero now renders desktop planets only on desktop and mobile swipe only on mobile.
-- LCP warnings were raised for above-the-fold planet images. Prioritized/eager loading was added for the relevant rendered planet sets.
-- The destination copy mentioned implementation checkpoints. It now remains a neutral partial-region teaser.
+- Reveal headline was too large in the first capture and collided with the interactive panel. Reduced desktop scale and adjusted the grid so the title fits without cutting.
+- Marquee appeared paused during validation because the browser was emulating reduced motion and the pointer was over the track. The validator now captures normal motion with `prefers-reduced-motion: no-preference` and separately validates reduced motion.
+- Mobile services title cut the final characters of `CONSTRUIMOS.` at 390px. Added a separate mobile type scale.
+- Flip card back controls were reachable by tab before the card was revealed. Back controls now leave the tab order until the card is flipped.
+- Mobile Lighthouse CLS was `0.0796`. Reserved the mobile planet-swipe space during viewport detection; final CLS is `0.0181`.
 
-## Final Validation
+## Browser Validation
 
-Final browser validation file:
+Evidence:
 
-- `docs/checkpoint-1-screenshots/validation-results.json`
+- `docs/checkpoint-2-screenshots/validation-results.json`
 
-Final automated results:
+Results:
 
-- Screenshots generated: 13
-- Console events: 0
-- Failed network responses: 0
-- Visible image issues: 0
-- Mobile swipe: rail present, `scrollLeft` recorded at 258
-- First transition destination opacity: 1
-- Planet Lab names present: Nova, Hyper Agents, Hyper Cloud, Hyper Flow, Hyper Dev, Hyper Support, Hyper Connect
+- Console events: 0.
+- Failed network responses: 0.
+- Visible image issues: 0.
+- Desktop custom cursor active.
+- Mobile custom cursor disabled.
+- Reveal range/drag state recorded.
+- Marquee tracks present and running in normal motion.
+- Reduced motion pauses section animation and marquee.
+- Keyboard flip state recorded.
+- Mobile tap flip state recorded.
+- Horizontal overflow: none in 1440 x 900, 430 x 932, 390 x 844, and 360 x 800 validation paths.
+
+## Performance Motion Notes
+
+- Continuous animation is limited to marquee and existing planet surfaces.
+- Below-fold Checkpoint 2 sections keep `content-visibility: auto`.
+- Motion uses transform, opacity, and clip-path rather than layout-heavy animation.
+- No video background, WebGL, carousel library, or high-particle effect was added.
 
 ## Remaining Motion Limitations
 
-- Video evidence was not committed; motion proof is represented by interaction screenshots and validation JSON.
-- The next region is intentionally a partial transition destination, not a complete Checkpoint 2 reveal.
-- The motion quality is strong enough for Checkpoint 1, but still short of a fully choreographed multi-region homepage system.
+- Video evidence was not committed; proof is represented by screenshots and validation JSON.
+- The first transition now lands in the interactive reveal, but it is still tied to the Checkpoint 1 sticky hero timing.
+- The mobile reveal is functional and controlled, but the dense comparison board is necessarily compact on 360px screens.
+- Lighthouse CLI returned a Chrome temp-directory cleanup `EPERM` after writing JSON; the generated JSON files were readable and used for scoring.
 
-## Deferred Motion Work
+## Scores
 
-The following remain for later checkpoints:
+| Item | Score | Notes |
+| --- | ---: | --- |
+| Reveal interaction | 8.4 | Mask, drag, range, buttons, and contextual cursor pass. |
+| Company motion | 8.3 | Editorial reveal works without feeling like a dashboard section. |
+| Marquee | 8.2 | Moderate continuous motion, hover pause, and reduced-motion behavior pass. |
+| Metrics motion | 8.1 | Large counter/scale rhythm is present; could be more cinematic later. |
+| Services flip | 8.4 | Hover, tap, keyboard, tilt, and CTA states pass. |
+| Mobile motion | 8.1 | No overflow; mobile interactions work without hover dependency. |
+| Performance impact | 8.6 | Lighthouse desktop/mobile scores pass; CLS mobile corrected. |
 
-- `DragRail`
-- `FlipCard`
-- `Marquee`
-- `CounterReveal`
-- `ScrollTextReveal`
-- `VelocityShift`
-- Region 2 comparison mask/drag
-- Region 6 flip cards
-- Region 8 marketplace momentum/snap rail
-- Region 9 sticky platform storytelling
+No essential motion item is below 8.

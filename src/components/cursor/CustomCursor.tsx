@@ -8,6 +8,7 @@ const CURSOR_LABELS: Record<string, string> = {
   planet: "EXPLORAR",
   drag: "ARRASTE",
   preview: "ABRIR",
+  reveal: "REVELAR",
 };
 
 export function CustomCursor() {

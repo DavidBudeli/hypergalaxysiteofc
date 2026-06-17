@@ -1,105 +1,146 @@
 # Homepage Checkpoint Report
 
-Status: Checkpoint 1 approved; full homepage intentionally incomplete.
+Status: Checkpoint 2 implemented; ready for visual approval.
 
-Branch: `feat/checkpoint-1-experience`
+Branch: `feat/checkpoint-2-experience`
 
-Date: 2026-06-16
+Date: 2026-06-17
 
 ## Current Homepage State
 
-The public homepage currently includes only the Checkpoint 1 experience:
+The public homepage now includes:
 
-- Preloader.
-- Header.
-- Hero.
-- Planet system.
-- Custom cursor.
-- First transition into a partial next-region destination.
-- Mobile hero, mobile menu, and mobile planet swipe.
+- Checkpoint 1 preloader, header, hero, planet system, cursor, mobile menu, mobile swipe, and first transition.
+- Region 2 interactive reveal.
+- Region 3 institutional company presentation.
+- Region 4 technology/integration marquee.
+- Region 5 metrics and capabilities.
+- Region 6 services with flip interaction.
 
-The second visible section is only a transition destination. It is not the Checkpoint 2 interactive reveal.
+Checkpoint 3 has not been started.
 
 ## Checkpoint Boundaries
 
 | Region | Status |
 | --- | --- |
-| Region 1 - Hero | Approved for Checkpoint 1 |
-| Region 2 - Reveal interativo | Not started |
-| Region 3 - Company presentation | Not started |
-| Region 4 - Technology marquee | Not started |
-| Region 5 - Metrics | Not started |
-| Region 6 - Services flip | Not started |
+| Region 1 - Hero | Approved in Checkpoint 1 and preserved |
+| Region 2 - Reveal interativo | Implemented in Checkpoint 2 |
+| Region 3 - Company presentation | Implemented in Checkpoint 2 |
+| Region 4 - Technology marquee | Implemented in Checkpoint 2 |
+| Region 5 - Metrics | Implemented in Checkpoint 2 |
+| Region 6 - Services flip | Implemented in Checkpoint 2 |
 | Region 7 - Hyper Vault / Agent Core | Not started |
 | Region 8 - Marketplace drag | Not started |
 | Region 9 - Platform story | Not started |
 | Region 10 - Differentials | Not started |
-| Region 11 - Nova | Not started |
+| Region 11 - Nova complete section | Not started |
 | Region 12 - Final CTA / footer | Not started |
 
-## Visual Comparison
+## Checkpoint 2 Scope Delivered
 
-The reference site `https://www.helloupdigital.com/` was opened and captured for comparison at:
+- Reveal section with operation-fragmented state and intelligent-ecosystem state.
+- Cursor-controlled mask, drag handle, range input, and accessible reveal buttons.
+- Institutional editorial section with required label, headline, copy, CTAs, and subtle Nova presence.
+- Technology marquee using only technologies/integrations: OpenAI, Next.js, TypeScript, Node.js, Python, PostgreSQL, Supabase, Docker, Vercel, Hostinger, WhatsApp, Telegram, APIs, Automacoes.
+- Metrics/capabilities using only verifiable capability statements: 24/7, 1 ecosystem, API, Cloud.
+- Six service flip cards with color variety, front/back content, technology tags, CTA, hover, tap, and keyboard behavior.
 
-- 1920 x 1080
-- 1440 x 900
-- 1366 x 768
-- 430 x 932
-- 390 x 844
-- 360 x 800
+## Explicitly Not Started
 
-The Hyper Galaxy implementation follows the reference quality targets for black field, large mixed typography, left editorial copy, right planetary composition, motion rhythm, cursor behavior, and mobile stacking. It does not copy the reference text, brand, assets, or code.
+- Hyper Vault.
+- Marketplace.
+- Platform story.
+- Differentials.
+- Full Nova section.
+- Final CTA/footer.
+- Authentication.
+- Database.
+- Dashboard.
+- Deploy, DNS, production release, or Checkpoint 3.
 
 ## Final Validation Summary
 
-Final validation source:
+Final browser validation source:
 
-- `docs/checkpoint-1-screenshots/validation-results.json`
+- `docs/checkpoint-2-screenshots/validation-results.json`
 
 Results:
 
-- Desktop viewports validated: 1920 x 1080, 1440 x 900, 1366 x 768.
-- Mobile viewports validated: 430 x 932, 390 x 844, 360 x 800.
-- Required screenshots generated: 10.
-- Additional interaction screenshots generated: 3.
+- Required screenshots generated: 9.
 - Console events: 0.
 - Failed network responses: 0.
 - Visible image issues: 0.
-- Horizontal overflow: none in validated viewports.
-- Mobile menu: opens, no horizontal overflow, cursor disabled.
-- Mobile swipe: rail present and movement recorded.
-- Planet Lab: all seven required planets visible and named.
-- First transition: destination section opacity reached 1.
+- Horizontal overflow: none in validated desktop/mobile paths.
+- Desktop cursor active with reveal state recorded.
+- Mobile cursor disabled.
+- Reveal range/drag recorded.
+- Marquee normal state: `running`, `34s`.
+- Reduced motion: matched and animation duration reduced to `0.001s`.
+- Keyboard flip state: recorded as flipped.
+- Mobile service tap state: recorded as flipped.
+- Mobile viewports additionally checked: 430 x 932 and 360 x 800.
+
+Performance evidence:
+
+- `docs/checkpoint-2-screenshots/lighthouse-desktop.json`
+- `docs/checkpoint-2-screenshots/lighthouse-mobile.json`
+
+Lighthouse production-local results:
+
+| Target | Performance | CLS | TBT | LCP |
+| --- | ---: | ---: | ---: | ---: |
+| Desktop | 99 | 0 | 0 ms | 689.4 ms |
+| Mobile | 92 | 0.0181 | 40.5 ms | 3268.0 ms |
 
 ## Corrections Included In This Pass
 
-- Copied and read `HYPERGALAXY_CONTINUACAO_COMPLETA.pdf`.
-- Added favicon and metadata icon.
-- Disabled Next dev indicator in project config.
-- Fixed first transition progress mapping.
-- Disabled custom cursor on mobile.
-- Rendered desktop and mobile planet systems conditionally by viewport.
-- Prioritized visible planet images to remove LCP warnings.
-- Added full Planet Lab overview and refreshed screenshots.
-- Replaced technical transition placeholder copy with neutral copy.
-- Styled dark scrollbars.
+- Integrated Checkpoint 1 into `main` with merge commit `491b477`.
+- Created tag `checkpoint-1-approved`.
+- Created and pushed `feat/checkpoint-2-experience`.
+- Replaced the partial next-region destination with the real Checkpoint 2 reveal.
+- Reduced reveal headline scale and adjusted layout after an initial text collision.
+- Added no-preference and reduced-motion validation paths.
+- Fixed mobile services headline clipping.
+- Prioritized company Nova image after an LCP warning.
+- Corrected flip-card tab order.
+- Reserved mobile planet-swipe space to reduce Lighthouse mobile CLS from `0.0796` to `0.0181`.
 
 ## Technical Validation
 
-Final command results:
+Commands run during the pass:
 
-- `npm.cmd run lint`: passed.
-- `npm.cmd run build`: passed.
-- `git status`: completed before commit; working tree contained only intended Checkpoint 1 changes.
+- `npm.cmd install`
+- `npm.cmd run dev`
+- `npm.cmd run build`
+- Lighthouse desktop/mobile via `npx.cmd lighthouse`
+- Browser validation through local Chrome DevTools Protocol
 
-## Next Allowed Work
+Final commands still required after removing the temporary validation script:
 
-Only after this Checkpoint 1 approval is accepted, the next implementation pass may begin Checkpoint 2:
+- `npm.cmd run lint`
+- `npm.cmd run build`
+- `git status`
 
-- Reveal interativo.
-- Company presentation.
-- Marquee.
-- Metrics.
-- Services with flip behavior.
+## Limitations
 
-Do not begin Checkpoint 3 until Checkpoint 2 is implemented, validated, and approved.
+- Lighthouse CLI produced a Chrome temp-directory cleanup `EPERM` after writing JSON. The JSON reports were generated, readable, and used for metrics.
+- No video evidence was committed.
+- Service visuals are original SVG/code compositions, not bitmap illustrations.
+- Mobile reveal is intentionally compact on 360px because it contains both states and controls.
+- Two moderate npm audit findings remain pending and were not force-fixed.
+
+## Scores
+
+| Item | Score | Notes |
+| --- | ---: | --- |
+| Region 2 reveal | 8.4 | Narrative interaction is functional and visually clear. |
+| Region 3 company | 8.3 | Editorial rhythm and copy pass without starting Nova section. |
+| Region 4 marquee | 8.2 | Correct content, motion, hover/reduced behavior. |
+| Region 5 metrics | 8.1 | Verifiable capabilities only; editorial scale works. |
+| Region 6 services | 8.4 | Flip, touch, keyboard, colors, and CTA pass. |
+| Desktop | 8.6 | Visuals and Lighthouse desktop pass strongly. |
+| Mobile | 8.2 | No overflow; title clipping and CLS were corrected. |
+| Accessibility | 8.2 | Native controls, keyboard flip, reduced motion, cursor disabled on mobile. |
+| Performance | 8.8 | Desktop 99, mobile 92, CLS/TBT targets met. |
+
+No essential item is below 8. Checkpoint 2 is ready for visual approval.

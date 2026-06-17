@@ -4,12 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { homepageCopy } from "@/config/homepage.config";
-import { motionTokens } from "@/config/motion-tokens";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ScrambleLabel } from "@/components/motion/ScrambleLabel";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 import { SpringTextReveal } from "@/components/motion/SpringTextReveal";
 import { PlanetSystem } from "@/components/planets/PlanetSystem";
+import { RevealSection } from "@/components/sections/RevealSection";
 
 import { MobilePlanetSwipe } from "./MobilePlanetSwipe";
 
@@ -117,7 +117,11 @@ export function HeroExperience({ ready }: { ready: boolean }) {
                 </div>
               </SpringTextReveal>
 
-              {viewportMode === "mobile" ? <MobilePlanetSwipe /> : null}
+              {viewportMode === "mobile" ? (
+                <MobilePlanetSwipe />
+              ) : (
+                <div className="mt-10 h-72 lg:hidden" aria-hidden="true" />
+              )}
             </motion.div>
 
             <div className="hidden lg:block" aria-hidden="true" />
@@ -136,30 +140,7 @@ export function HeroExperience({ ready }: { ready: boolean }) {
         </div>
       </section>
 
-      <motion.section
-        className="relative z-30 -mt-[72vh] min-h-[72vh] overflow-hidden bg-[#F6F4EF] px-6 py-24 text-[#050507] sm:px-8 lg:px-10"
-        style={{ opacity: nextOpacity }}
-      >
-        <div className="mx-auto max-w-[1280px]">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.28em] text-[#6D28D9]">
-            Proxima experiencia
-          </p>
-          <h2 className="mt-6 max-w-4xl text-5xl font-black uppercase leading-[0.9] md:text-7xl">
-            Seu proximo nivel esta aqui dentro.
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-[#17181E]/68">
-            A proxima regiao permanece apenas sugerida nesta etapa, preservando
-            o foco na hero e no primeiro movimento de entrada.
-          </p>
-        </div>
-        <motion.div
-          className="absolute bottom-0 left-0 h-2 w-full bg-[#8B5CF6]"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: motionTokens.durations.sweep, ease: motionTokens.easings.enter }}
-          style={{ transformOrigin: "left" }}
-        />
-      </motion.section>
+      <RevealSection transitionOpacity={nextOpacity} />
     </>
   );
 }

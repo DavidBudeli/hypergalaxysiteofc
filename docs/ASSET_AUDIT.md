@@ -1,75 +1,100 @@
 # Asset Audit
 
-Status: Checkpoint 1 approved with remaining watchpoints.
+Status: Checkpoint 2 implemented and ready for visual approval.
 
-Date: 2026-06-16
+Date: 2026-06-17
 
-Branch: `feat/checkpoint-1-experience`
+Branch: `feat/checkpoint-2-experience`
 
 ## References Read
 
 - `HYPERGALAXY_FROM_SCRATCH_MASTER_SPEC.md`
 - `HYPERGALAXY_CONTINUACAO_COMPLETA.pdf`
+- `docs/HERO_CHECKPOINT_REPORT.md`
+- `docs/HOMEPAGE_CHECKPOINT_REPORT.md`
+- `docs/MOTION_AUDIT.md`
+- `docs/ASSET_AUDIT.md`
 
-The continuation PDF was copied into the repository root from `C:\Users\allys\Downloads\HYPERGALAXY_CONTINUACAO_COMPLETA.pdf` and read as reference for future phases only. No Checkpoint 2 asset scope was started.
+Checkpoint 1 assets were preserved. No Checkpoint 3 assets were started.
 
 ## Current Asset Inventory
 
-| Asset | Format | Resolution | Weight | Use | Status |
-| --- | --- | ---: | ---: | --- | --- |
-| `public/favicon.ico` | ICO | 32 x 32 | 4.2 KB | Browser favicon, prevents `/favicon.ico` 404 | approved |
-| `public/assets/brand/hyper-galaxy-wordmark.svg` | SVG | vector | 788 B | Header, menu, preloader, metadata icon | approved |
-| `public/assets/stars/hero-stars.svg` | SVG | vector | 9.1 KB | Hero/preloader star field | approved |
-| `public/assets/planets/nova.webp` | WebP | 1024 x 1024 | 113.3 KB | Hero/lab planet system | approved |
-| `public/assets/planets/hyper-agents.webp` | WebP | 1024 x 1024 | 116.6 KB | Hero/lab planet system | approved |
-| `public/assets/planets/hyper-cloud.webp` | WebP | 1024 x 1024 | 83.5 KB | Hero/lab planet system | approved |
-| `public/assets/planets/hyper-flow.webp` | WebP | 1024 x 1024 | 133.3 KB | Preloader, hero, lab | approved |
-| `public/assets/planets/hyper-dev.webp` | WebP | 1024 x 1024 | 121.1 KB | Hero/lab planet system | approved |
-| `public/assets/planets/hyper-support.webp` | WebP | 1024 x 1024 | 131.1 KB | Hero/lab planet system | approved |
-| `public/assets/planets/hyper-connect.webp` | WebP | 1024 x 1024 | 146.5 KB | Hero/lab planet system | approved |
-| `public/assets/planets/*-mobile.webp` | WebP | 640 x 640 | 50.3-75.2 KB | Mobile-ready derivatives | approved, not yet viewport-swapped |
-| `public/assets/planets/*-thumb.webp` | WebP | 256 x 256 | 13.9-19.1 KB | Preview/thumb derivatives | approved |
-| `public/assets/planets/planet-contact-sheet.png` | PNG | 1820 x 330 | 293.5 KB | Audit/contact sheet | approved |
+| Asset | Format | Use | Status |
+| --- | --- | --- | --- |
+| `public/favicon.ico` | ICO | Browser favicon | Preserved |
+| `public/assets/brand/hyper-galaxy-wordmark.svg` | SVG | Header, menu, preloader, metadata | Preserved |
+| `public/assets/stars/hero-stars.svg` | SVG | Hero/preloader star field | Preserved |
+| `public/assets/planets/nova.webp` | WebP | Hero, lab, subtle company presence | Preserved; company instance prioritized |
+| `public/assets/planets/hyper-agents.webp` | WebP | Hero/lab planet system | Preserved |
+| `public/assets/planets/hyper-cloud.webp` | WebP | Hero/lab planet system | Preserved |
+| `public/assets/planets/hyper-flow.webp` | WebP | Preloader, hero, lab | Preserved |
+| `public/assets/planets/hyper-dev.webp` | WebP | Hero/lab planet system | Preserved |
+| `public/assets/planets/hyper-support.webp` | WebP | Hero/lab planet system | Preserved |
+| `public/assets/planets/hyper-connect.webp` | WebP | Hero/lab planet system | Preserved |
+| `public/assets/planets/*-mobile.webp` | WebP | Mobile derivatives | Preserved |
+| `public/assets/planets/*-thumb.webp` | WebP | Preview/thumb derivatives | Preserved |
+| `public/assets/planets/planet-contact-sheet.png` | PNG | Audit/contact sheet | Preserved |
+| `FlipCard` inline service glyphs | SVG in TSX | Original visuals for six service fronts | Added |
+| `docs/checkpoint-2-screenshots/*.png` | PNG | Evidence captures | Added |
+| `docs/checkpoint-2-screenshots/*.json` | JSON | Browser and Lighthouse evidence | Added |
+
+## New Asset Work
+
+- No new raster source assets were introduced for Checkpoint 2.
+- Services use original inline SVG compositions in `src/components/cards/FlipCard.tsx`.
+- The institutional section reuses Nova as a subtle Hyper Galaxy presence, not a full Nova section.
+- The reveal board uses geometric UI elements, masks, lines, and cards generated in code.
+- Technology marquee uses text chips only and clearly states that listed names are technologies/integrations, not clients.
 
 ## Problems Found And Fixes
 
-- `HYPERGALAXY_CONTINUACAO_COMPLETA.pdf` was not present in the repo. It was copied into the project root and verified as readable.
-- Browser validation reported `/favicon.ico` 404. Added `public/favicon.ico` and metadata icon wiring.
-- Dev screenshots contained the Next.js dev indicator. Added `devIndicators: false` in `next.config.ts`.
-- Browser console warned about LCP planet images. Desktop hero now renders only on desktop and uses eager prioritized planet images; the mobile swipe renders only on mobile; Planet Lab evidence images are eager on the dev route.
-- `/dev/planet-lab` did not show every planet in the first viewport. Added an overview strip with all seven planets.
+- A development console warning identified `/assets/planets/nova.webp` as LCP in the company capture. The company Nova `PlanetVisual` now uses `priority`.
+- Mobile services typography cut the final characters of the section title at 390px. The mobile scale was reduced and evidence regenerated.
+- Lighthouse mobile CLS exceeded the target before reserving mobile hero planet space. The reserved space fixed the shift.
 
 ## Visual Quality Result
 
-All seven Checkpoint 1 planets pass the asset bar for this phase:
-
-- Distinct texture and identity.
-- Visible highlight, atmosphere, shadow/terminator overlay, and animated surface layer.
-- No reused recolor-only asset was found in the current rendered set.
-- No blurry visible image was reported by the final browser validation.
+- Checkpoint 1 planets remain approved and unchanged in identity.
+- Checkpoint 2 did not add generic stock imagery, dashboard mockups, client logos, or copied reference assets.
+- Service visuals have distinct color personalities: purple, magenta, orange, blue, turquoise, and soft violet/white.
+- No visible image failures were reported in the final browser validation.
 
 ## Evidence
 
-Generated local evidence:
+Required Checkpoint 2 captures:
 
-- `docs/checkpoint-1-screenshots/planet-lab-1920x1080.png`
-- `docs/checkpoint-1-screenshots/planet-active-1440x900.png`
-- `docs/checkpoint-1-screenshots/hover-cursor-1440x900.png`
-- `docs/checkpoint-1-screenshots/mobile-swipe-390x844.png`
-- `docs/checkpoint-1-screenshots/validation-results.json`
+- `docs/checkpoint-2-screenshots/reveal-1440x900.png`
+- `docs/checkpoint-2-screenshots/reveal-active-1440x900.png`
+- `docs/checkpoint-2-screenshots/company-1440x900.png`
+- `docs/checkpoint-2-screenshots/marquee-1440x900.png`
+- `docs/checkpoint-2-screenshots/metrics-1440x900.png`
+- `docs/checkpoint-2-screenshots/services-front-1440x900.png`
+- `docs/checkpoint-2-screenshots/services-flip-1440x900.png`
+- `docs/checkpoint-2-screenshots/checkpoint-2-mobile-390x844.png`
+- `docs/checkpoint-2-screenshots/services-mobile-390x844.png`
 
-Reference comparison evidence:
+Additional evidence:
 
-- `docs/checkpoint-1-reference-screenshots/reference-1920x1080.png`
-- `docs/checkpoint-1-reference-screenshots/reference-1440x900.png`
-- `docs/checkpoint-1-reference-screenshots/reference-1366x768.png`
-- `docs/checkpoint-1-reference-screenshots/reference-430x932.png`
-- `docs/checkpoint-1-reference-screenshots/reference-390x844.png`
-- `docs/checkpoint-1-reference-screenshots/reference-360x800.png`
+- `docs/checkpoint-2-screenshots/validation-results.json`
+- `docs/checkpoint-2-screenshots/lighthouse-desktop.json`
+- `docs/checkpoint-2-screenshots/lighthouse-mobile.json`
 
 ## Remaining Asset Limitations
 
-- Planet rendering is stylized and strong for Checkpoint 1, but not a physically simulated 3D system.
-- Mobile-specific planet derivatives exist, but the current `PlanetVisual` still uses the primary source with Next image resizing.
-- No video evidence was committed; the available evidence is screenshot plus interaction-state JSON.
-- `npm.cmd install` reported two moderate npm audit findings. They were not force-fixed because dependency upgrades were outside this checkpoint scope.
+- No video evidence was committed.
+- Mobile-specific planet derivatives exist, but `PlanetVisual` still relies on Next image resizing from the primary assets in the rendered path.
+- The service visuals are original code-generated glyphs, not separate illustrated bitmap assets.
+- `npm.cmd install` previously reported two moderate npm audit findings; they remain pending and were not force-fixed.
+
+## Scores
+
+| Item | Score | Notes |
+| --- | ---: | --- |
+| Existing planet assets | 8.6 | Preserved from Checkpoint 1. |
+| New service visuals | 8.2 | Distinct and original, but code-generated rather than richer raster illustrations. |
+| Reveal visual assets | 8.3 | Narrative board is clear and interactive. |
+| Company/Nova usage | 8.2 | Subtle and scoped correctly. |
+| Evidence completeness | 8.7 | Required screenshots and JSON evidence generated. |
+| Asset performance | 8.6 | No visible image issues; LCP warning fixed. |
+
+No essential asset item is below 8.

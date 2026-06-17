@@ -136,6 +136,49 @@ body {
     drop-shadow(0 0 34px color-mix(in srgb, var(--planet-accent) 52%, transparent));
 }
 
+.marquee:hover .marquee-track,
+.marquee:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+.marquee-track {
+  animation: marquee-x var(--marquee-speed, 38s) linear infinite;
+}
+
+.marquee-track-reverse {
+  animation-name: marquee-x-reverse;
+}
+
+.flip-card {
+  perspective: 1400px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flip-card:hover .flip-card-inner,
+  .flip-card:focus-within .flip-card-inner {
+    transform: rotateX(var(--tilt-x, 0deg)) rotateY(calc(180deg + var(--tilt-y, 0deg)));
+  }
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+  background: var(--card-surface);
+  color: var(--card-ink);
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
 .hero-outline-text {
   -webkit-text-stroke: 1.5px rgba(246, 244, 239, 0.82);
   text-stroke: 1.5px rgba(246, 244, 239, 0.82);
@@ -158,6 +201,40 @@ body {
 
   to {
     transform: translate3d(1.2%, 0.9%, 0) scale(1.018);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}
+
+@keyframes marquee-x-reverse {
+  from {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-reverse,
+  .planet-visual-image,
+  .planet-visual-surface {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .flip-card-inner {
+    transition-duration: 1ms !important;
   }
 }
 

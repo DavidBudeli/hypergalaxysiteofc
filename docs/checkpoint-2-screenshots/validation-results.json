@@ -1,0 +1,787 @@
+{
+  "generatedAt": "2026-06-17T00:34:11.763Z",
+  "baseUrl": "http://localhost:3000",
+  "screenshots": [
+    {
+      "file": "reveal-1440x900.png",
+      "bytes": 125722
+    },
+    {
+      "file": "reveal-active-1440x900.png",
+      "bytes": 129913
+    },
+    {
+      "file": "company-1440x900.png",
+      "bytes": 136929
+    },
+    {
+      "file": "marquee-1440x900.png",
+      "bytes": 94412
+    },
+    {
+      "file": "metrics-1440x900.png",
+      "bytes": 43747
+    },
+    {
+      "file": "services-front-1440x900.png",
+      "bytes": 155261
+    },
+    {
+      "file": "services-flip-1440x900.png",
+      "bytes": 155671
+    },
+    {
+      "file": "checkpoint-2-mobile-390x844.png",
+      "bytes": 62419
+    },
+    {
+      "file": "services-mobile-390x844.png",
+      "bytes": 49734
+    }
+  ],
+  "viewports": [
+    {
+      "label": "reveal-1440",
+      "scrollY": 900,
+      "overflowX": false,
+      "width": 1440,
+      "height": 900,
+      "activeElement": "BODY",
+      "bodyCursor": "true",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 168,
+          "naturalHeight": 168,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 196,
+          "naturalHeight": 196,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 154,
+          "naturalHeight": 154,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=128&q=75",
+          "complete": true,
+          "naturalWidth": 118,
+          "naturalHeight": 118,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 92,
+          "naturalHeight": 92,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 72,
+          "naturalHeight": 72,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 260,
+          "naturalHeight": 260,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "label": "company-1440",
+      "scrollY": 1962,
+      "overflowX": false,
+      "width": 1440,
+      "height": 900,
+      "activeElement": "BODY",
+      "bodyCursor": "true",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 168,
+          "naturalHeight": 168,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 196,
+          "naturalHeight": 196,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 154,
+          "naturalHeight": 154,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=128&q=75",
+          "complete": true,
+          "naturalWidth": 118,
+          "naturalHeight": 118,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 92,
+          "naturalHeight": 92,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 72,
+          "naturalHeight": 72,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 260,
+          "naturalHeight": 260,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "label": "marquee-1440",
+      "scrollY": 2824,
+      "overflowX": false,
+      "width": 1440,
+      "height": 900,
+      "activeElement": "BODY",
+      "bodyCursor": "true",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 168,
+          "naturalHeight": 168,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 196,
+          "naturalHeight": 196,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 154,
+          "naturalHeight": 154,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=128&q=75",
+          "complete": true,
+          "naturalWidth": 118,
+          "naturalHeight": 118,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 92,
+          "naturalHeight": 92,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 72,
+          "naturalHeight": 72,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 260,
+          "naturalHeight": 260,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "label": "metrics-1440",
+      "scrollY": 3440,
+      "overflowX": false,
+      "width": 1440,
+      "height": 900,
+      "activeElement": "BODY",
+      "bodyCursor": "true",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 168,
+          "naturalHeight": 168,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 196,
+          "naturalHeight": 196,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 154,
+          "naturalHeight": 154,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=128&q=75",
+          "complete": true,
+          "naturalWidth": 118,
+          "naturalHeight": 118,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 92,
+          "naturalHeight": 92,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 72,
+          "naturalHeight": 72,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 260,
+          "naturalHeight": 260,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "label": "services-front-1440",
+      "scrollY": 4917,
+      "overflowX": false,
+      "width": 1440,
+      "height": 900,
+      "activeElement": "BODY",
+      "bodyCursor": "true",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 168,
+          "naturalHeight": 168,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 196,
+          "naturalHeight": 196,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 154,
+          "naturalHeight": 154,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=128&q=75",
+          "complete": true,
+          "naturalWidth": 118,
+          "naturalHeight": 118,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 92,
+          "naturalHeight": 92,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 72,
+          "naturalHeight": 72,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 260,
+          "naturalHeight": 260,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "label": "checkpoint-2-mobile-390",
+      "scrollY": 844,
+      "overflowX": false,
+      "width": 390,
+      "height": 844,
+      "activeElement": "BODY",
+      "bodyCursor": null,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 188,
+          "naturalHeight": 188,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        }
+      ]
+    },
+    {
+      "label": "mobile-430x932-reveal",
+      "scrollY": 932,
+      "overflowX": false,
+      "width": 430,
+      "height": 932,
+      "activeElement": "BODY",
+      "bodyCursor": null,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 188,
+          "naturalHeight": 188,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        }
+      ]
+    },
+    {
+      "label": "mobile-430x932-services",
+      "scrollY": 4764,
+      "overflowX": false,
+      "width": 430,
+      "height": 932,
+      "activeElement": "BODY",
+      "bodyCursor": null,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 188,
+          "naturalHeight": 188,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        }
+      ]
+    },
+    {
+      "label": "mobile-360x800-reveal",
+      "scrollY": 800,
+      "overflowX": false,
+      "width": 360,
+      "height": 800,
+      "activeElement": "BODY",
+      "bodyCursor": null,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 188,
+          "naturalHeight": 188,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": true
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        }
+      ]
+    },
+    {
+      "label": "mobile-360x800-services",
+      "scrollY": 4948,
+      "overflowX": false,
+      "width": 360,
+      "height": 800,
+      "activeElement": "BODY",
+      "bodyCursor": null,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 188,
+          "naturalHeight": 188,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-agents.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-cloud.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-flow.webp&w=384&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-dev.webp&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 142,
+          "naturalHeight": 142,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-support.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fhyper-connect.webp&w=3840&q=75",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "visible": false
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fplanets%2Fnova.webp&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 86,
+          "naturalHeight": 86,
+          "visible": false
+        }
+      ]
+    }
+  ],
+  "interactions": {
+    "reveal": {
+      "cursor": "true",
+      "range": [
+        "56"
+      ],
+      "text": "DA OPERAÇÃO MANUAL AO ECOSSISTEMA INTELIGENTE\n\nSEU PRÓXIMO\nNÍVEL ESTÁ\nAQUI DENTRO.\n\nArraste, mova o cursor ou use o controle para comparar uma operação fragmentada com um ecossistema Hyper Galaxy conectado.\n\nARRASTE PARA REVELAR\n\nESTADO A / OPERAÇÃO FRAGMENTADA\n\n01\nProcessos manuais\n02\nTarefas repetitivas\n03\nSistemas d"
+    },
+    "marquee": {
+      "tracks": 2,
+      "paused": "running",
+      "duration": "34s",
+      "sectionClass": "overflow-hidden bg-[#F6F4EF] py-20 text-[#050507]",
+      "labels": "TECNOLOGIAS QUE IMPULSIONAM O ECOSSISTEMA\n\nTECNOLOGIAS E INTEGRAÇÕES PLANEJADAS PARA CONECTAR SOFTWARE, AUTOMAÇÕES E CANAIS. NÃO SÃO CLIENTES.\n\nOPENAI\nNEXT.JS\nTYPESCRIPT\nNODE.JS\nPYTHON\nPOSTGRESQL\nSUPABASE\nOPENAI\nNEXT.JS\nTYPESCRIPT\nNODE.JS\nPYTHON\nPOSTGRESQL\nSUP"
+    },
+    "metrics": {
+      "text": "MÉTRICAS E CAPACIDADES\n\n24/7\n\nAGENTES DISPONÍVEIS\n\n1\n\nECOSSISTEMA CONECTADO\n\nAPI\n\nINTEGRAÇÕES ABERTAS\n\nCLOUD\n\nINFRAESTRUTURA ESCALÁVEL"
+    },
+    "keyboard": {
+      "activeTag": "BUTTON",
+      "flipped": true,
+      "focusedText": "01DescobrirDESENVOLVIMENTO DE SOFTWARESistemas web, plataformas internas e produ"
+    },
+    "mobileServices": {
+      "flipped": true,
+      "overflowX": false,
+      "text": "PASSE O CURSOR PARA DESCOBRIR.\n\nTOQUE PARA DESCOBRIR.\n\nO QUE\nCONSTRUÍMOS.\n\nCada frente combina arquitetura, automação e operação conectada. Os cards revelam aplicação prática, tecnologias e caminho de ação.\n\n01\nDESCOBRIR\nDESENVOLVIMENTO DE SOFTWARE\nSistemas we"
+    },
+    "reducedMotion": {
+      "matches": true,
+      "pausedSections": 6,
+      "marqueeDuration": "0.001s",
+      "overflowX": false
+    }
+  },
+  "consoleEvents": [],
+  "failedNetwork": [],
+  "imageIssues": []
+}
