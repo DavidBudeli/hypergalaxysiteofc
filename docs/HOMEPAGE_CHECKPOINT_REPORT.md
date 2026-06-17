@@ -89,8 +89,8 @@ Lighthouse production-local results:
 
 | Target | Performance | CLS | TBT | LCP |
 | --- | ---: | ---: | ---: | ---: |
-| Desktop | 99 | 0 | 0 ms | 689.4 ms |
-| Mobile | 92 | 0.0181 | 40.5 ms | 3268.0 ms |
+| Desktop | 99 | 0 | 0 ms | 659.3 ms |
+| Mobile | 92 | 0.0181 | 28.5 ms | 3255.2 ms |
 
 ## Corrections Included In This Pass
 
@@ -104,6 +104,9 @@ Lighthouse production-local results:
 - Prioritized company Nova image after an LCP warning.
 - Corrected flip-card tab order.
 - Reserved mobile planet-swipe space to reduce Lighthouse mobile CLS from `0.0796` to `0.0181`.
+- Separated the desktop cursor instruction from the mobile touch instruction in services.
+- Replaced cursor-specific reveal copy on mobile with swipe/control guidance.
+- Added an `#iniciar-projeto` integration anchor at services so existing CTAs have a valid destination without creating the Checkpoint 3 final CTA.
 
 ## Technical Validation
 

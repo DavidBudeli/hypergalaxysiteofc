@@ -29,8 +29,12 @@ export function RevealSection({
         </div>
 
         <div className="min-w-0 lg:justify-self-end">
-          <p className="text-lg leading-8 text-[#17181E]/72">
+          <p className="hidden text-lg leading-8 text-[#17181E]/72 lg:block">
             Arraste, mova o cursor ou use o controle para comparar uma operação
+            fragmentada com um ecossistema Hyper Galaxy conectado.
+          </p>
+          <p className="text-lg leading-8 text-[#17181E]/72 lg:hidden">
+            Deslize sobre o painel ou use o controle para comparar uma operação
             fragmentada com um ecossistema Hyper Galaxy conectado.
           </p>
           <p className="mt-5 font-mono text-xs font-black uppercase tracking-[0.22em] text-[#17181E]/52">

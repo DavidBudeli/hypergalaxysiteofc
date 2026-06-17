@@ -103,7 +103,7 @@ Resultados:
 - Cards funcionam por toque.
 - Titulo mobile de servicos corrigido para nao cortar texto.
 - Espaco mobile da hero reservado para reduzir CLS.
-- Lighthouse mobile: Performance 92, CLS 0.0181, TBT 40.5 ms.
+- Lighthouse mobile: Performance 92, CLS 0.0181, TBT 28.5 ms.
 
 ## Acessibilidade
 
@@ -125,7 +125,7 @@ Metas:
 | Desktop TBT | <= 150 ms | 0 ms |
 | Mobile Lighthouse | >= 75 | 92 |
 | Mobile CLS | <= 0.05 | 0.0181 |
-| Mobile TBT | <= 200 ms | 40.5 ms |
+| Mobile TBT | <= 200 ms | 28.5 ms |
 
 Observacao: o Lighthouse CLI retornou erro `EPERM` na limpeza do diretorio temporario do Chrome depois de escrever os JSONs. Os arquivos foram gerados, lidos e usados para os resultados acima.
 
@@ -137,6 +137,10 @@ Observacao: o Lighthouse CLI retornou erro `EPERM` na limpeza do diretorio tempo
 - Console dev alertou LCP em `nova.webp`. Corrigido com `priority` no uso institucional.
 - Flip card tinha controles do verso acessiveis por tab antes do reveal. Corrigido com `tabIndex`.
 - Lighthouse mobile CLS inicial era `0.0796`. Corrigido para `0.0181`.
+- A revisao final do PDF encontrou instrucoes desktop e mobile exibidas juntas nos servicos. A instrucao por cursor agora fica restrita ao desktop.
+- O reveal mobile ainda mencionava cursor. A copia mobile agora orienta deslize e controle visivel.
+- Os CTAs `#iniciar-projeto` nao tinham destino no DOM. Foi adicionada uma ancora de integracao na regiao de servicos, sem iniciar CTA final ou Checkpoint 3.
+- O custom cursor nao reagia a mudanca de mobile para desktop sem remount. A ativacao agora acompanha o media query de pointer/viewport e continua desativada no mobile.
 
 ## Limitacoes
 

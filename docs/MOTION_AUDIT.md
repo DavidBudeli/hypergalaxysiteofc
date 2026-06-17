@@ -43,6 +43,7 @@ Checkpoint 2 primitives added:
 - Mobile services title cut the final characters of `CONSTRUIMOS.` at 390px. Added a separate mobile type scale.
 - Flip card back controls were reachable by tab before the card was revealed. Back controls now leave the tab order until the card is flipped.
 - Mobile Lighthouse CLS was `0.0796`. Reserved the mobile planet-swipe space during viewport detection; final CLS is `0.0181`.
+- The custom cursor only checked its desktop/fine-pointer media query on the initial mount. It now reacts to media-query changes, remaining disabled on mobile and activating after a desktop resize.
 
 ## Browser Validation
 

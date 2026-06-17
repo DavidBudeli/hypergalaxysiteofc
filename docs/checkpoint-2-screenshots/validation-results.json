@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T00:34:11.763Z",
+  "generatedAt": "2026-06-17T20:30:12.212Z",
   "baseUrl": "http://localhost:3000",
   "screenshots": [
     {
@@ -32,11 +32,11 @@
     },
     {
       "file": "checkpoint-2-mobile-390x844.png",
-      "bytes": 62419
+      "bytes": 44779
     },
     {
       "file": "services-mobile-390x844.png",
-      "bytes": 49734
+      "bytes": 31566
     }
   ],
   "viewports": [
@@ -779,6 +779,39 @@
       "pausedSections": 6,
       "marqueeDuration": "0.001s",
       "overflowX": false
+    },
+    "finalPdfAudit": {
+      "anchorExists": true,
+      "ctaHash": "#iniciar-projeto",
+      "mobileDesktopInstructionHidden": true,
+      "mobileTouchInstructionVisible": true,
+      "mobileRevealUsesSwipeCopy": true,
+      "flipByTouch": true,
+      "flipByKeyboard": true,
+      "normalMarqueeDuration": "34s",
+      "normalMarqueeState": "running",
+      "reducedMotionDuration": "0.001s",
+      "reducedMotionPausedSections": 6,
+      "cursorDesktopInitial": true,
+      "cursorMobileAfterResize": false,
+      "cursorDesktopAfterResize": true,
+      "overflowX": false,
+      "brokenOnscreenImages": 0,
+      "browserConsoleWarningsOrErrors": 0,
+      "lighthouse": {
+        "desktop": {
+          "performance": 99,
+          "cls": 0,
+          "tbtMs": 0,
+          "lcpMs": 659.3
+        },
+        "mobile": {
+          "performance": 92,
+          "cls": 0.0181,
+          "tbtMs": 28.5,
+          "lcpMs": 3255.2
+        }
+      }
     }
   },
   "consoleEvents": [],
