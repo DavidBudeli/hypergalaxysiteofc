@@ -91,21 +91,21 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
         className={cn(
           "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
           scrolled
-            ? "h-[58px] border-b border-white/10 bg-[#050507]/78 backdrop-blur-xl"
-            : "h-16 bg-transparent",
+            ? "h-16 border-b border-white/10 bg-[#050507]/78 backdrop-blur-xl"
+            : "h-[68px] bg-transparent",
         )}
       >
-        <nav className="mx-auto grid h-full max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8 lg:px-10">
-          <Link href="/" data-cursor="link">
+        <nav className="mx-auto grid h-full max-w-[1400px] grid-cols-[minmax(10rem,1fr)_auto_minmax(14rem,1fr)] items-center px-5 sm:px-8 lg:px-10">
+          <Link href="/" className="inline-flex w-fit items-center py-2" data-cursor="link">
             <Wordmark />
           </Link>
 
-          <div className="hidden items-center gap-7 lg:flex">
+          <div className="hidden items-center gap-5 lg:flex xl:gap-7 2xl:gap-8">
             {navigationLinks.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-white/68 transition-colors hover:text-white"
+                className="whitespace-nowrap text-[13px] font-semibold tracking-[-0.01em] text-white/72 transition-colors hover:text-white"
                 data-cursor="link"
               >
                 {item.label}
@@ -113,20 +113,20 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
             ))}
           </div>
 
-          <div className="hidden items-center justify-end gap-5 lg:flex">
+          <div className="hidden items-center justify-end gap-5 lg:flex xl:gap-6">
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/54">
               {navigationActions.language.current}
             </span>
             <a
               href={navigationActions.login.href}
-              className="text-sm font-medium text-white/62 transition-colors hover:text-white"
+              className="text-[13px] font-semibold text-white/70 transition-colors hover:text-white"
               data-cursor="link"
             >
               {navigationActions.login.label}
             </a>
             <a
               href={navigationActions.primaryCta.href}
-              className="inline-flex h-10 items-center gap-2 bg-[#F6F4EF] px-5 text-sm font-bold uppercase tracking-[0.04em] text-[#050507] transition-colors hover:bg-[#C4B5FD]"
+              className="inline-flex h-10 items-center gap-2 bg-[#F6F4EF] px-5 text-xs font-black uppercase tracking-[0.08em] text-[#050507] transition-colors hover:bg-[#C4B5FD]"
               data-cursor="cta"
             >
               {navigationActions.primaryCta.label}

@@ -39,20 +39,19 @@ export function PlatformStorySection() {
     <section
       ref={sectionRef}
       id="plataforma"
-      className="relative bg-[#090A10] text-[#F6F4EF] lg:min-h-[430vh]"
+      className="relative bg-[#090A10] text-[#F6F4EF] lg:min-h-[320vh]"
     >
       <span id="projetos" className="absolute -top-16" aria-hidden="true" />
 
       <div className="px-6 py-24 sm:px-8 lg:hidden">
         <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-[#93C5FD]">
-          Hyper Galaxy Platform / preview
+          Operação conectada
         </p>
         <h2 className="mt-7 text-[clamp(3rem,13vw,5rem)] font-black uppercase leading-[0.86]">
           TUDO O QUE SUA OPERAÇÃO PRECISA. EM UM SÓ LUGAR.
         </h2>
         <p className="mt-7 max-w-xl text-base leading-7 text-white/58">
-          Sequência demonstrativa da plataforma futura. Nenhum dado abaixo representa uma
-          conta real.
+          Uma visão integrada para acompanhar agentes, projetos, solicitações e operação.
         </p>
 
         <div className="mt-12 grid gap-5">
@@ -66,7 +65,7 @@ export function PlatformStorySection() {
         <div className="mx-auto grid min-h-[calc(100vh-10rem)] max-w-[1280px] grid-cols-[0.76fr_1.24fr] items-center gap-16">
           <div>
             <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-[#93C5FD]">
-              Hyper Galaxy Platform / preview
+              Operação conectada
             </p>
             <h2 className="mt-7 text-[clamp(4rem,6vw,7rem)] font-black uppercase leading-[0.86]">
               <ScrollTextReveal>TUDO O QUE</ScrollTextReveal>
@@ -74,8 +73,7 @@ export function PlatformStorySection() {
               <ScrollTextReveal delay={0.16}>EM UM SÓ LUGAR.</ScrollTextReveal>
             </h2>
             <p className="mt-8 max-w-lg text-lg leading-8 text-white/58">
-              Um módulo por vez, com dados claramente identificados como demonstração até a
-              plataforma autenticada estar disponível.
+              Um módulo por vez para transformar contexto disperso em decisões claras.
             </p>
 
             <ol className="mt-10 grid gap-2" aria-label="Modulos da plataforma">
@@ -99,7 +97,7 @@ export function PlatformStorySection() {
             </ol>
           </div>
 
-          <div className="relative min-h-[650px]">
+          <div className="relative min-h-[560px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={platformModules[activeIndex].id}
@@ -139,7 +137,7 @@ function PlatformPreview({
     <article
       className={cn(
         "relative overflow-hidden border border-white/12 bg-[#111218]",
-        compact ? "min-h-[28rem] p-5" : "min-h-[650px] p-8 xl:p-10",
+        compact ? "min-h-[22rem] p-5" : "min-h-[560px] p-8 xl:p-10",
       )}
     >
       <div className="flex items-center justify-between border-b border-white/10 pb-5">
@@ -149,7 +147,7 @@ function PlatformPreview({
           </span>
           <div>
             <p className="font-mono text-[9px] font-black uppercase tracking-[0.2em] text-white/68">
-              Preview / demonstração
+              Visão ilustrativa
             </p>
             <h3 className="mt-1 text-lg font-black uppercase">{module.title}</h3>
           </div>
@@ -178,7 +176,7 @@ function PlatformPreview({
               />
               <span className="text-sm font-bold">{row}</span>
               <span className="font-mono text-[9px] font-black uppercase tracking-[0.16em] text-white/68">
-                Demo {String(rowIndex + 1).padStart(2, "0")}
+                Exemplo {String(rowIndex + 1).padStart(2, "0")}
               </span>
             </div>
           ))}

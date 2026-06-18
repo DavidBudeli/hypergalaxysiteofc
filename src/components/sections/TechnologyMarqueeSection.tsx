@@ -18,8 +18,7 @@ export function TechnologyMarqueeSection() {
           Tecnologias que impulsionam o ecossistema
         </p>
         <p className="mt-5 max-w-3xl text-2xl font-black uppercase leading-tight md:text-4xl">
-          Tecnologias e integrações planejadas para conectar software,
-          automações e canais. Não são clientes.
+          Repertório técnico para conectar software, automações, dados e canais.
         </p>
       </SectionTransition>
 

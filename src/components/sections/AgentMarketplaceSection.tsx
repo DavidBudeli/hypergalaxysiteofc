@@ -102,14 +102,14 @@ export function AgentMarketplaceSection() {
   return (
     <section
       id="agentes-ia"
-      className="overflow-hidden bg-[#F6F4EF] py-24 text-[#050507] lg:py-32"
+      className="overflow-hidden bg-[#F6F4EF] py-20 text-[#050507] lg:py-24"
       aria-labelledby="agents-title"
     >
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-[#6D28D9]">
-              Hyper Galaxy Marketplace / demonstração
+              Agentes especializados
             </p>
             <h2
               id="agents-title"
@@ -205,7 +205,7 @@ export function AgentMarketplaceSection() {
                     className="border px-3 py-1 font-mono text-[9px] font-black uppercase tracking-[0.2em]"
                     style={{ borderColor: agent.accent, color: agent.accent }}
                   >
-                    Demonstração
+                    Conceito
                   </span>
                 </div>
 

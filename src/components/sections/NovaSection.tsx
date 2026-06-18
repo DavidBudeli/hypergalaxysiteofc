@@ -16,7 +16,7 @@ export function NovaSection() {
   return (
     <section
       id="nova"
-      className="relative overflow-hidden bg-[#C4B5FD] px-6 py-24 text-[#050507] sm:px-8 lg:px-10 lg:py-32"
+      className="relative overflow-hidden bg-[#C4B5FD] px-6 py-20 text-[#050507] sm:px-8 lg:px-10 lg:py-24"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-[#050507]/12" />
       <div className="mx-auto grid max-w-[1280px] gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -30,9 +30,8 @@ export function NovaSection() {
             <ScrollTextReveal delay={0.16}>HYPER GALAXY.</ScrollTextReveal>
           </h2>
           <p className="mt-8 max-w-xl text-lg leading-8 text-[#17181E]/72">
-            Uma presença digital para orientar, conectar agentes e tornar a operação mais
-            simples. Esta conversa é uma demonstração de interface, sem integração ativa com
-            modelos de IA.
+            Uma presença digital para orientar decisões, conectar agentes e tornar a operação
+            mais simples. A conversa abaixo ilustra essa experiência.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -44,7 +43,7 @@ export function NovaSection() {
               aria-controls="nova-conversation"
               data-cursor="cta"
             >
-              {conversationOpen ? "Fechar demonstração" : "Conversar com a Nova"}
+              {conversationOpen ? "Fechar conversa" : "Conversar com a Nova"}
               {conversationOpen ? <X size={18} aria-hidden="true" /> : <MessageCircle size={18} aria-hidden="true" />}
             </button>
             <a
@@ -71,7 +70,7 @@ export function NovaSection() {
                 <div className="flex items-center gap-3 border-b border-[#050507]/10 pb-4">
                   <span className="h-2.5 w-2.5 bg-[#A3E635]" aria-hidden="true" />
                   <span className="font-mono text-[10px] font-black uppercase tracking-[0.22em]">
-                    Preview ativo / respostas demonstrativas
+                    Exemplo ilustrativo / sem integração ativa
                   </span>
                 </div>
                 <div className="mt-4 grid gap-3 text-sm leading-6">
@@ -129,7 +128,7 @@ export function NovaSection() {
           <div className="absolute bottom-[6%] left-1/2 flex -translate-x-1/2 items-center gap-3 border border-[#050507]/16 bg-[#F6F4EF]/92 px-4 py-3 backdrop-blur-sm">
             <Sparkles size={16} aria-hidden="true" />
             <span className="whitespace-nowrap font-mono text-[9px] font-black uppercase tracking-[0.2em]">
-              Nova / preview
+              Nova / conceito
             </span>
           </div>
         </motion.div>

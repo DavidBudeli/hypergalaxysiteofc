@@ -13,7 +13,7 @@ export const navigationActions = {
     alternate: "EN-US",
   },
   login: {
-    label: "Preview",
+    label: "Entrar",
     href: "#plataforma",
   },
   primaryCta: {

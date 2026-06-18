@@ -19,7 +19,7 @@ export function AgentCoreSection() {
   return (
     <section
       id="agent-core"
-      className="relative overflow-hidden bg-[#050507] px-6 py-24 text-[#F6F4EF] sm:px-8 lg:px-10 lg:py-28"
+      className="relative overflow-hidden bg-[#050507] px-6 py-20 text-[#F6F4EF] sm:px-8 lg:px-10 lg:py-24"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-white/12" />
       <div className="mx-auto max-w-[1280px]">
@@ -35,8 +35,8 @@ export function AgentCoreSection() {
             </h2>
           </div>
           <p className="max-w-xl text-lg leading-8 text-white/62 lg:justify-self-end">
-            Um gateway visual para agentes especializados, automações e dados. Abra o
-            núcleo para conhecer as frentes previstas para cada operação.
+            Um núcleo para coordenar agentes especializados, automações e dados. Abra para
+            conhecer as frentes de atuação.
           </p>
         </SectionTransition>
 

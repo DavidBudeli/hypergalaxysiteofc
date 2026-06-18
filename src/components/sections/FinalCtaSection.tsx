@@ -62,7 +62,7 @@ export function FinalCtaSection() {
               className="inline-flex h-16 items-center justify-center gap-3 border border-white/18 px-7 text-sm font-black uppercase tracking-[0.08em] text-[#F6F4EF] transition-colors hover:border-[#93C5FD] hover:text-[#93C5FD]"
               data-cursor="cta"
             >
-              Acessar preview da plataforma
+              Conhecer a plataforma
               <ArrowUpRight size={19} aria-hidden="true" />
             </a>
           </div>

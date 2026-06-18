@@ -31,12 +31,12 @@ function DifferentialBand({
   return (
     <div
       ref={ref}
-      className="relative min-h-[68vh] overflow-hidden px-6 py-20 sm:px-8 lg:px-10"
+      className="relative min-h-[56vh] overflow-hidden px-6 py-16 sm:px-8 lg:min-h-[60vh] lg:px-10 lg:py-20"
       style={{ backgroundColor: differential.background, color: differential.foreground }}
     >
       <div
         className={cn(
-          "mx-auto flex min-h-[calc(68vh-10rem)] max-w-[1280px] flex-col justify-center",
+          "mx-auto flex min-h-[calc(56vh-8rem)] max-w-[1280px] flex-col justify-center lg:min-h-[calc(60vh-10rem)]",
           alignRight ? "items-end text-right" : "items-start text-left",
         )}
       >
