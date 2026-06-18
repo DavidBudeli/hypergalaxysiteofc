@@ -1,0 +1,7 @@
+<svg width="360" height="64" viewBox="0 0 360 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11 42C5.5 28.5 14.7 12.8 30 8" stroke="#F6F4EF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M16 25C16 14.5 24.5 6 35 6H37C47.5 6 56 14.5 56 25V39C56 49.5 47.5 58 37 58H35C24.5 58 16 49.5 16 39V25Z" fill="#F6F4EF"/>
+  <rect x="21" y="24" width="30" height="17" rx="8.5" fill="#050507"/>
+  <path d="M27 33C28.5 31.4 30.5 31.4 32 33M40 33C41.5 31.4 43.5 31.4 45 33" stroke="#F6F4EF" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="82" y="40" fill="#F6F4EF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="3">HYPER GALAXY</text>
+</svg>

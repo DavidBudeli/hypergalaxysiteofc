@@ -10,16 +10,15 @@ export function ServicesSection() {
     <section
       id="servicos"
       className="relative overflow-hidden bg-[#F6F4EF] px-6 py-24 text-[#050507] sm:px-8 lg:px-10"
-      style={{ contentVisibility: "auto", containIntrinsicSize: "1280px" }}
     >
-      <span id="iniciar-projeto" className="absolute -top-16" aria-hidden="true" />
+      <span id="solucoes" className="absolute -top-16" aria-hidden="true" />
       <div className="mx-auto max-w-[1280px]">
         <SectionTransition className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="hidden font-mono text-xs font-black uppercase tracking-[0.3em] text-[#6D28D9] lg:block">
               Passe o cursor para descobrir.
             </p>
-            <p className="mt-2 font-mono text-xs font-black uppercase tracking-[0.3em] text-[#17181E]/48 lg:hidden">
+            <p className="mt-2 font-mono text-xs font-black uppercase tracking-[0.3em] text-[#17181E]/68 lg:hidden">
               Toque para descobrir.
             </p>
             <h2 className="mt-7 max-w-[11ch] text-[clamp(2.5rem,8vw,3.4rem)] font-black uppercase leading-[0.9] sm:text-[clamp(4rem,10vw,9rem)] sm:leading-[0.86]">

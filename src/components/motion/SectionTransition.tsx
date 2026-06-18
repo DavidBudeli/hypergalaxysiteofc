@@ -22,11 +22,11 @@ export function SectionTransition({
     <motion.div
       ref={ref}
       className={cn("will-change-transform", className)}
-      initial={{ opacity: 0, y: 36, clipPath: "inset(12% 0 0 0)" }}
+      initial={{ y: 36, clipPath: "inset(12% 0 0 0)" }}
       animate={
         inView
-          ? { opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }
-          : { opacity: 0, y: 36, clipPath: "inset(12% 0 0 0)" }
+          ? { y: 0, clipPath: "inset(0% 0 0 0)" }
+          : { y: 36, clipPath: "inset(12% 0 0 0)" }
       }
       transition={{
         delay,

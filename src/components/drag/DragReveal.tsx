@@ -74,7 +74,7 @@ export function DragReveal() {
           type="button"
           className="absolute top-0 z-30 flex h-full w-14 -translate-x-1/2 cursor-ew-resize items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#050507]"
           style={{ left: `${progress}%` }}
-          aria-label="Arraste para revelar a operação conectada"
+          aria-label={`Comparação em ${Math.round(progress)}%. Arraste para revelar a operação conectada`}
           onPointerDown={(event) => {
             setDragging(true);
             event.currentTarget.setPointerCapture(event.pointerId);

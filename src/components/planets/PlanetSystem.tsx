@@ -106,7 +106,7 @@ function PlanetOrbit({
       type="button"
       className={cn(
         "group pointer-events-auto absolute z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center border-0 bg-transparent p-0 text-center",
-        muted && "opacity-45",
+        muted && "[&_.planet-visual]:opacity-45",
       )}
       style={{
         left: planet.position.desktop.x,

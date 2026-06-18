@@ -37,7 +37,7 @@ export function RevealSection({
             Deslize sobre o painel ou use o controle para comparar uma operação
             fragmentada com um ecossistema Hyper Galaxy conectado.
           </p>
-          <p className="mt-5 font-mono text-xs font-black uppercase tracking-[0.22em] text-[#17181E]/52">
+          <p className="mt-5 font-mono text-xs font-black uppercase tracking-[0.22em] text-[#17181E]/68">
             Arraste para revelar
           </p>
           <div className="mt-7">

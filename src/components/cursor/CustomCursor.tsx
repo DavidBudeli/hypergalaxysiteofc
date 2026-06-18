@@ -21,7 +21,9 @@ export function CustomCursor() {
   const visible = useRef(false);
 
   useEffect(() => {
-    const finePointer = window.matchMedia("(pointer: fine) and (min-width: 1024px)");
+    const finePointer = window.matchMedia(
+      "(pointer: fine) and (min-width: 1024px) and (prefers-reduced-motion: no-preference)",
+    );
     let active = false;
 
     const setCursorState = (state = "default", label = "") => {

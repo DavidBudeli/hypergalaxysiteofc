@@ -12,7 +12,6 @@ export function TechnologyMarqueeSection() {
     <section
       id="tecnologias"
       className="overflow-hidden bg-[#F6F4EF] py-20 text-[#050507]"
-      style={{ contentVisibility: "auto", containIntrinsicSize: "620px" }}
     >
       <SectionTransition className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-10">
         <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-[#6D28D9]">

@@ -14,7 +14,6 @@ export function CompanySection() {
     <section
       id="empresa"
       className="relative overflow-hidden bg-[#090A10] px-6 py-28 text-[#F6F4EF] sm:px-8 lg:px-10"
-      style={{ contentVisibility: "auto", containIntrinsicSize: "900px" }}
     >
       <div className="absolute right-[8%] top-20 hidden opacity-55 lg:block" aria-hidden="true">
         <PlanetVisual planet={nova} size={86} priority />

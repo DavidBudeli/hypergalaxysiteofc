@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { navigationActions, navigationLinks } from "@/config/navigation.config";
 import { motionTokens } from "@/config/motion-tokens";
@@ -14,6 +14,9 @@ import { Wordmark } from "./Wordmark";
 export function SiteHeader({ ready = true }: { ready?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const menuDialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 18);
@@ -24,10 +27,55 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (!menuOpen) {
+      return;
+    }
+
+    const previousActiveElement = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const dialog = menuDialogRef.current;
+      const focusable = dialog?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (!dialog || !focusable?.length) {
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === first || !dialog.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = "";
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousActiveElement?.focus({ preventScroll: true });
     };
   }, [menuOpen]);
 
@@ -48,7 +96,7 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
         )}
       >
         <nav className="mx-auto grid h-full max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8 lg:px-10">
-          <Link href="/" aria-label="Hyper Galaxy home" data-cursor="link">
+          <Link href="/" data-cursor="link">
             <Wordmark />
           </Link>
 
@@ -66,13 +114,9 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
           </div>
 
           <div className="hidden items-center justify-end gap-5 lg:flex">
-            <button
-              className="font-mono text-xs uppercase tracking-[0.18em] text-white/54 transition-colors hover:text-white"
-              type="button"
-              data-cursor="link"
-            >
-              {navigationActions.language.current} / {navigationActions.language.alternate}
-            </button>
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/54">
+              {navigationActions.language.current}
+            </span>
             <a
               href={navigationActions.login.href}
               className="text-sm font-medium text-white/62 transition-colors hover:text-white"
@@ -92,10 +136,13 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
 
           <div className="flex justify-end lg:hidden">
             <button
+              ref={menuButtonRef}
               type="button"
               className="grid h-10 w-10 place-items-center border border-white/18 text-white"
               onClick={() => setMenuOpen(true)}
               aria-label="Abrir menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
               data-cursor="link"
             >
               <Menu size={24} />
@@ -107,7 +154,12 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
       <AnimatePresence>
         {menuOpen ? (
           <motion.div
+            ref={menuDialogRef}
+            id="mobile-navigation"
             className="fixed inset-0 z-[70] bg-[#050507] px-6 py-5 text-white lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu principal"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
@@ -120,6 +172,7 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
             <div className="flex items-center justify-between">
               <Wordmark />
               <button
+                ref={closeButtonRef}
                 type="button"
                 className="grid h-11 w-11 place-items-center border border-[#C4B5FD] text-white"
                 onClick={() => setMenuOpen(false)}
@@ -135,7 +188,7 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-3xl font-semibold leading-none text-white"
+                  className="flex min-h-11 items-center text-3xl font-semibold leading-none text-white"
                   initial={{ y: 18, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{

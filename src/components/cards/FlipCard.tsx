@@ -5,6 +5,7 @@ import { useCallback, useState, type CSSProperties, type PointerEvent } from "re
 
 import { motionTokens } from "@/config/motion-tokens";
 import { cn } from "@/lib/cn";
+import { useReducedMotionContext } from "@/components/motion/ReducedMotionProvider";
 
 type Service = {
   id: string;
@@ -21,14 +22,19 @@ type Service = {
 
 export function FlipCard({ service }: { service: Service }) {
   const [flipped, setFlipped] = useState(false);
+  const prefersReducedMotion = useReducedMotionContext();
 
   const handlePointerMove = useCallback((event: PointerEvent<HTMLElement>) => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const rect = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width - 0.5;
     const y = (event.clientY - rect.top) / rect.height - 0.5;
     event.currentTarget.style.setProperty("--tilt-x", `${-y * 5}deg`);
     event.currentTarget.style.setProperty("--tilt-y", `${x * 5}deg`);
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <article
@@ -60,7 +66,6 @@ export function FlipCard({ service }: { service: Service }) {
           type="button"
           className="flip-face flip-front absolute inset-0 flex h-full w-full flex-col justify-between border border-black/10 p-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8B5CF6]"
           aria-pressed={flipped}
-          aria-label={`${service.title}. Toque para descobrir.`}
           tabIndex={flipped ? -1 : 0}
           onClick={() => setFlipped((current) => !current)}
           onKeyDown={(event) => {
@@ -91,7 +96,7 @@ export function FlipCard({ service }: { service: Service }) {
         >
           <button
             type="button"
-            className="self-start border border-white/12 px-3 py-2 font-mono text-[10px] font-black uppercase tracking-[0.2em]"
+            className="min-h-11 self-start border border-white/12 px-3 py-2 font-mono text-[10px] font-black uppercase tracking-[0.2em]"
             tabIndex={flipped ? 0 : -1}
             onClick={() => setFlipped(false)}
           >

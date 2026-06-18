@@ -13,7 +13,6 @@ export function MetricsSection() {
     <section
       id="capacidades"
       className="bg-[#050507] text-[#F6F4EF]"
-      style={{ contentVisibility: "auto", containIntrinsicSize: "980px" }}
     >
       <div className="mx-auto max-w-[1280px] px-6 py-24 sm:px-8 lg:px-10">
         <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-[#93C5FD]">
@@ -47,8 +46,8 @@ function MetricRow({
         "min-h-[15rem] border-t border-white/12 py-8",
         alignRight ? "text-right" : "text-left",
       )}
-      initial={{ opacity: 0.4, scale: 0.94 }}
-      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0.4, scale: 0.94 }}
+      initial={{ scale: 0.94, y: 24 }}
+      animate={inView ? { scale: 1, y: 0 } : { scale: 0.94, y: 24 }}
       transition={{
         duration: motionTokens.durations.slow,
         ease: motionTokens.easings.enter,

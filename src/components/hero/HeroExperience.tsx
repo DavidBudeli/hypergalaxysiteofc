@@ -10,6 +10,7 @@ import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 import { SpringTextReveal } from "@/components/motion/SpringTextReveal";
 import { PlanetSystem } from "@/components/planets/PlanetSystem";
 import { RevealSection } from "@/components/sections/RevealSection";
+import { useReducedMotionContext } from "@/components/motion/ReducedMotionProvider";
 
 import { MobilePlanetSwipe } from "./MobilePlanetSwipe";
 
@@ -17,6 +18,7 @@ export function HeroExperience({ ready }: { ready: boolean }) {
   const sectionRef = useRef<HTMLElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
   const [viewportMode, setViewportMode] = useState<"desktop" | "mobile" | "unknown">("unknown");
+  const prefersReducedMotion = useReducedMotionContext();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
@@ -54,6 +56,10 @@ export function HeroExperience({ ready }: { ready: boolean }) {
           ref={sceneRef}
           className="sticky top-0 min-h-screen overflow-hidden bg-[#050507] text-[#F6F4EF]"
           onPointerMove={(event) => {
+            if (prefersReducedMotion) {
+              return;
+            }
+
             const target = event.currentTarget;
             const rect = target.getBoundingClientRect();
             target.style.setProperty("--mouse-x", `${(event.clientX - rect.left) / rect.width - 0.5}`);

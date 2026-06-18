@@ -1,0 +1,12 @@
+<svg width="250" height="116" viewBox="0 0 250 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(8 26)">
+    <path d="M11 42C5.5 28.5 14.7 12.8 30 8" stroke="#6D28D9" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M16 25C16 14.5 24.5 6 35 6H37C47.5 6 56 14.5 56 25V39C56 49.5 47.5 58 37 58H35C24.5 58 16 49.5 16 39V25Z" fill="#050507"/>
+    <rect x="21" y="24" width="30" height="17" rx="8.5" fill="#F6F4EF" stroke="#6D28D9" stroke-width="2.5"/>
+    <path d="M27 33C28.5 31.4 30.5 31.4 32 33M40 33C41.5 31.4 43.5 31.4 45 33" stroke="#6D28D9" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M10 11L11.6 14.4L15 16L11.6 17.6L10 21L8.4 17.6L5 16L8.4 14.4L10 11Z" fill="#6D28D9"/>
+  </g>
+  <text x="94" y="52" fill="#050507" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="4">HYPER</text>
+  <text x="94" y="84" fill="#17181E" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="4">GALAXY</text>
+  <rect x="94" y="94" width="42" height="3" fill="#6D28D9"/>
+</svg>

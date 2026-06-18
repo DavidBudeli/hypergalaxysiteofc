@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-18",
+  "branch": "feat/checkpoint-3-ecosystem",
+  "productionUrl": "http://127.0.0.1:3100",
+  "viewports": [
+    { "width": 1920, "height": 1080, "horizontalOverflow": 0, "brokenImages": 0, "zeroHeightSections": 0 },
+    { "width": 1440, "height": 900, "horizontalOverflow": 0, "brokenImages": 0, "zeroHeightSections": 0 },
+    { "width": 430, "height": 932, "horizontalOverflow": 0, "brokenImages": 0, "zeroHeightSections": 0 },
+    { "width": 390, "height": 844, "horizontalOverflow": 0, "brokenImages": 0, "zeroHeightSections": 0 },
+    { "width": 360, "height": 800, "horizontalOverflow": 0, "brokenImages": 0, "zeroHeightSections": 0 }
+  ],
+  "runtime": {
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "networkFailures": 0,
+    "httpErrors": 0,
+    "hydrationErrors": 0,
+    "brokenImages": 0,
+    "duplicateIds": 0,
+    "brokenInternalAnchors": 0
+  },
+  "interactions": {
+    "mobileMenu": "passed: focus, Escape and focus restoration",
+    "flipCards": "passed: keyboard focus and reverse controls",
+    "agentCore": "passed: keyboard expansion and CTA",
+    "marketplace": "passed: ArrowRight advanced from 01/08 to 02/08",
+    "platform": "passed: module 02 selected and demo marker remained visible",
+    "nova": "passed: conversation opened with demonstrative-response marker",
+    "reveal": "passed: native range and explicit state controls",
+    "mobileSwipe": "native scroll/snap structure verified; synthetic touch unavailable in test browser"
+  },
+  "reducedMotion": {
+    "mediaQueryMatched": true,
+    "preloaderPresent": false,
+    "customCursorPresent": false,
+    "marqueeAnimationDuration": "0.001s",
+    "marqueeIterationCount": "1",
+    "novaTransform": "none"
+  },
+  "routes": {
+    "/": 200,
+    "/privacidade": 200,
+    "/termos": 200,
+    "/sitemap.xml": 200,
+    "/robots.txt": 200,
+    "/manifest.webmanifest": 200,
+    "/opengraph-image": 200,
+    "/favicon.ico": 200
+  },
+  "seo": {
+    "canonical": true,
+    "openGraphImage": true,
+    "manifest": true,
+    "sitemap": true,
+    "robots": true
+  },
+  "commercial": {
+    "demonstrationLabelsInRenderedHtml": 20,
+    "functionalEmailAbsent": true,
+    "fallbackContact": "GitHub issue URL",
+    "mxConfigured": false
+  },
+  "lighthouse": {
+    "desktop": { "performance": 100, "accessibility": 100, "bestPractices": 100, "seo": 100, "cls": 0, "tbtMs": 0, "lcpSeconds": 0.8 },
+    "mobile": { "performance": 89, "accessibility": 100, "bestPractices": 100, "seo": 100, "cls": 0.018, "tbtMs": 110, "lcpSeconds": 3.7 }
+  }
+}

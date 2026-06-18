@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { motionTokens } from "@/config/motion-tokens";
 import { cn } from "@/lib/cn";
 
+import { useReducedMotionContext } from "./ReducedMotionProvider";
+
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*+<>/";
 
 export function ScrambleLabel({
@@ -20,12 +22,17 @@ export function ScrambleLabel({
   ready?: boolean;
 }) {
   const [value, setValue] = useState(text);
+  const prefersReducedMotion = useReducedMotionContext();
 
   useEffect(() => {
     let frame = 0;
     let tick = 0;
 
     if (!ready) {
+      return;
+    }
+
+    if (prefersReducedMotion) {
       return;
     }
 
@@ -61,7 +68,7 @@ export function ScrambleLabel({
       window.clearTimeout(start);
       cancelAnimationFrame(frame);
     };
-  }, [delay, ready, text]);
+  }, [delay, prefersReducedMotion, ready, text]);
 
   return (
     <motion.p
@@ -69,7 +76,7 @@ export function ScrambleLabel({
         "font-mono text-xs font-bold uppercase tracking-[0.34em] text-[#C4B5FD]",
         className,
       )}
-      initial={{ opacity: 0, x: -18 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, x: -18 }}
       animate={ready ? { opacity: 1, x: 0 } : { opacity: 0, x: -18 }}
       transition={{
         delay,
@@ -77,7 +84,7 @@ export function ScrambleLabel({
         ease: motionTokens.easings.enter,
       }}
     >
-      {value}
+      {prefersReducedMotion ? text : value}
     </motion.p>
   );
 }

@@ -1,5 +1,5 @@
-import { CheckpointTwoExperience } from "@/components/sections/CheckpointTwoExperience";
+import { CheckpointThreeExperience } from "@/components/sections/CheckpointThreeExperience";
 
 export default function Home() {
-  return <CheckpointTwoExperience />;
+  return <CheckpointThreeExperience />;
 }

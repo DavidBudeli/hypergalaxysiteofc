@@ -2,7 +2,7 @@ import { cn } from "@/lib/cn";
 
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <div className={cn("flex items-center gap-3", className)} aria-label="Hyper Galaxy">
+    <div className={cn("flex items-center gap-3", className)}>
       <svg
         width="42"
         height="42"

@@ -1,5 +1,6 @@
 "use client";
 
+import { MotionConfig } from "framer-motion";
 import type { ReactNode } from "react";
 
 import { CustomCursor } from "@/components/cursor/CustomCursor";
@@ -10,11 +11,13 @@ import { SmoothScrollProvider } from "@/components/motion/SmoothScrollProvider";
 export function ExperienceProviders({ children }: { children: ReactNode }) {
   return (
     <ReducedMotionProvider>
-      <SmoothScrollProvider>
-        {children}
-        <AnimationPauser />
-        <CustomCursor />
-      </SmoothScrollProvider>
+      <MotionConfig reducedMotion="user">
+        <SmoothScrollProvider>
+          {children}
+          <AnimationPauser />
+          <CustomCursor />
+        </SmoothScrollProvider>
+      </MotionConfig>
     </ReducedMotionProvider>
   );
 }
