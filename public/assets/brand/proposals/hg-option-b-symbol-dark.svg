@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Hyper Galaxy — opção B, símbolo para fundo escuro</title>
+  <desc id="desc">Monograma HG modular com H construído em blocos e G roxo conectado lateralmente.</desc>
+  <path fill="#F5F3EE" d="M5 8h8v20h11V8h8v48h-8V36H13v20H5z"/>
+  <path fill="#7546E8" d="M47 17h12v8H47c-4 0-7 3-7 7v9c0 4 3 7 7 7h5v-6h-7v-8h15v22H47c-9 0-15-6-15-15v-9c0-9 6-15 15-15z"/>
+  <path fill="#7546E8" d="M29 29h8v7h-8z"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 72" role="img" aria-labelledby="title desc">
+  <title id="title">Hyper Galaxy — opção C para fundo escuro</title>
+  <desc id="desc">Monograma HG institucional, divisor e wordmark Hyper Galaxy em sans geométrica.</desc>
+  <g transform="translate(4 4)" fill="none" stroke="#F5F3EE" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M7.5 12v40M26.5 12v40M7.5 32h19"/>
+    <path d="M57 19.5C54 14.5 49.7 12 45 12c-7.8 0-13 8-13 20s5.2 20 13.5 20c4.8 0 8.7-1.8 11.5-5V35H48"/>
+  </g>
+  <path fill="#7546E8" d="M33.5 31h3v10h-3z"/>
+  <path d="M82 17v38" stroke="#F5F3EE" stroke-opacity=".24"/>
+  <text x="102" y="45" fill="#F5F3EE" font-family="Geist, Inter, Arial, sans-serif" font-size="27" font-weight="600" letter-spacing=".55">HYPER GALAXY</text>
+</svg>

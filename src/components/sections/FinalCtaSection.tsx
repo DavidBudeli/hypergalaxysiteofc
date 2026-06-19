@@ -76,12 +76,12 @@ export function FinalCtaSection() {
         </div>
       </section>
 
-      <footer className="bg-[#050507] px-6 pb-8 text-[#F6F4EF] sm:px-8 lg:px-10">
+      <footer id="rodape" className="bg-[#050507] px-6 pb-8 text-[#F6F4EF] sm:px-8 lg:px-10">
         <div className="mx-auto max-w-[1280px] border-t border-white/12 pt-8">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto_auto] lg:items-start">
             <div>
               <a href="#topo" data-cursor="link">
-                <Wordmark />
+                <Wordmark className="w-[170px]" />
               </a>
               <p className="mt-5 max-w-sm text-sm leading-6 text-white/62">
                 Software, inteligência artificial, automação e cloud conectados à operação.

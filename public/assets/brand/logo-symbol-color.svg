@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title"><title id="title">Hyper Galaxy HG symbol</title><g><path fill="#050507" d="M18 14H38V54H66V14H86V61H66V73H38V114H18ZM38 54V73H66V54Z"/><path fill="#7546E8" d="M81 42C93 42 104 47 112 56L100 68C95 61 89 58 81 58C68 58 58 68 58 81C58 94 68 104 82 104C90 104 97 101 101 95H82V80H120V92C115 109 101 120 81 120C59 120 41 103 41 81C41 59 59 42 81 42Z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Hyper Galaxy HG symbol</title>
+  <path fill="#050507" d="M12 18 34 4v46h24V18L80 4v100H58V70H34v34H12z"/>
+  <path d="M110 59c-6-8-14-12-24-12-17 0-29 12-29 29s12 28 29 28c11 0 20-4 26-12V77H90" fill="none" stroke="#7546E8" stroke-width="16"/>
+</svg>

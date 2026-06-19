@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">App icon Hyper Galaxy</title>
+  <desc id="desc">Monograma HG branco e roxo sobre um quadrado preto arredondado.</desc>
+  <defs>
+    <linearGradient id="purple" x1="42" y1="42" x2="107" y2="108" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9A5CFF"/>
+      <stop offset=".5" stop-color="#7546E8"/>
+      <stop offset="1" stop-color="#5423C9"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="24" fill="#050507"/>
+  <g transform="translate(18 18) scale(.76)">
+    <path fill="#F5F3EE" d="M12 18 34 4v46h24V18L80 4v100H58V70H34v34H12z"/>
+    <path d="M110 59c-6-8-14-12-24-12-17 0-29 12-29 29s12 28 29 28c11 0 20-4 26-12V77H90" fill="none" stroke="url(#purple)" stroke-width="16"/>
+  </g>
+</svg>

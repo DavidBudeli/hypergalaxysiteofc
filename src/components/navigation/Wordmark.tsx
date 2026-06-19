@@ -1,14 +1,25 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/cn";
 
-export function Wordmark({ className }: { className?: string }) {
+export function Wordmark({
+  className,
+  variant = "dark",
+  priority = false,
+}: {
+  className?: string;
+  variant?: "dark" | "light";
+  priority?: boolean;
+}) {
   return (
-    <span
-      className={cn(
-        "relative inline-flex whitespace-nowrap pb-1 text-[13px] font-black uppercase leading-none tracking-[0.18em] text-[#F6F4EF] after:absolute after:bottom-0 after:left-0 after:h-px after:w-8 after:bg-[#8B5CF6] sm:text-sm sm:tracking-[0.21em]",
-        className,
-      )}
-    >
-      Hyper Galaxy
-    </span>
+    <Image
+      src={`/assets/brand/logo-horizontal-${variant}.svg`}
+      alt="Hyper Galaxy"
+      width={799}
+      height={144}
+      className={cn("h-auto w-[132px] sm:w-[150px] lg:w-[168px]", className)}
+      priority={priority}
+      unoptimized
+    />
   );
 }

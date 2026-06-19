@@ -95,9 +95,9 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
             : "h-[68px] bg-transparent",
         )}
       >
-        <nav className="mx-auto grid h-full max-w-[1400px] grid-cols-[minmax(10rem,1fr)_auto_minmax(14rem,1fr)] items-center px-5 sm:px-8 lg:px-10">
+        <nav className="mx-auto grid h-full max-w-[1400px] grid-cols-[1fr_auto] items-center px-5 sm:px-8 lg:grid-cols-[minmax(11rem,1fr)_auto_minmax(14rem,1fr)] lg:px-10">
           <Link href="/" className="inline-flex w-fit items-center py-2" data-cursor="link">
-            <Wordmark />
+            <Wordmark priority />
           </Link>
 
           <div className="hidden items-center gap-5 lg:flex xl:gap-7 2xl:gap-8">
@@ -170,7 +170,7 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
           >
             <div className="absolute bottom-0 right-0 top-0 w-2 bg-[#8B5CF6]" />
             <div className="flex items-center justify-between">
-              <Wordmark />
+              <Wordmark className="w-[140px]" priority />
               <button
                 ref={closeButtonRef}
                 type="button"

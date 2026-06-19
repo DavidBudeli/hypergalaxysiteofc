@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Hyper Galaxy — opção C, símbolo para fundo escuro</title>
+  <desc id="desc">Monograma HG institucional com construção conservadora e detalhe roxo.</desc>
+  <g fill="none" stroke="#F5F3EE" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M7.5 12v40M26.5 12v40M7.5 32h19"/>
+    <path d="M57 19.5C54 14.5 49.7 12 45 12c-7.8 0-13 8-13 20s5.2 20 13.5 20c4.8 0 8.7-1.8 11.5-5V35H48"/>
+  </g>
+  <path fill="#7546E8" d="M29.5 27h3v10h-3z"/>
+</svg>

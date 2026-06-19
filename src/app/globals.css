@@ -2,10 +2,10 @@
 
 :root {
   --background: #050507;
-  --foreground: #f6f4ef;
-  --muted: #b9bbc5;
-  --surface: #090a10;
-  --accent: #6d28d9;
+  --foreground: #f5f3ee;
+  --muted: #b8bbc4;
+  --surface: #1b1c22;
+  --accent: #7546e8;
 }
 
 @theme inline {
@@ -28,7 +28,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  scrollbar-color: rgba(246, 244, 239, 0.26) #050507;
+  scrollbar-color: rgba(245, 243, 238, 0.26) #050507;
 }
 
 ::-webkit-scrollbar {
@@ -138,9 +138,9 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid #f6f4ef;
+  outline: 3px solid #f5f3ee;
   outline-offset: 3px;
-  box-shadow: 0 0 0 6px #6d28d9;
+  box-shadow: 0 0 0 6px #7546e8;
 }
 
 .marquee:hover .marquee-track,

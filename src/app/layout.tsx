@@ -43,19 +43,32 @@ export const metadata: Metadata = {
     title: "Hyper Galaxy | Software, IA, Automação e Cloud",
     description:
       "Software, agentes de IA, automação e infraestrutura cloud para operações que querem crescer.",
+    images: [
+      {
+        url: "/assets/brand/og-brand.png",
+        width: 1200,
+        height: 630,
+        alt: "Hyper Galaxy - Intelligent systems. Stronger outcomes.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hyper Galaxy | Software, IA, Automação e Cloud",
     description:
       "Software, agentes de IA, automação e infraestrutura cloud para operações que querem crescer.",
+    images: ["/assets/brand/og-brand.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: [{ url: "/favicon.ico" }],
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "16x16 24x24 32x32 48x48 64x64" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 

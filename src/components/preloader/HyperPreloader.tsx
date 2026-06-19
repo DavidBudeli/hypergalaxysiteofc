@@ -10,7 +10,7 @@ import { Wordmark } from "@/components/navigation/Wordmark";
 import { useReducedMotionContext } from "@/components/motion/ReducedMotionProvider";
 
 const criticalAssets = [
-  "/assets/brand/hyper-galaxy-wordmark.svg",
+  "/assets/brand/logo-horizontal-dark.svg",
   "/assets/stars/hero-stars.svg",
   "/assets/planets/hyper-flow.webp",
   "/assets/planets/nova.webp",
@@ -131,7 +131,7 @@ export function HyperPreloader({
               animate={{ opacity: complete ? 0 : 1, y: complete ? -8 : 0 }}
               transition={{ duration: motionTokens.durations.fast }}
             >
-              <Wordmark />
+              <Wordmark className="w-[190px]" priority />
             </motion.div>
 
             <motion.div

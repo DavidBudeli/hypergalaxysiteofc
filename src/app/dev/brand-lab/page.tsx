@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function BrandLabPage() {
-  return <BrandLab />;
+export default async function BrandLabPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ capture?: string }>;
+}) {
+  const { capture } = await searchParams;
+  return <BrandLab capture={capture} />;
 }

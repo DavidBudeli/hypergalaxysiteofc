@@ -18,7 +18,7 @@ export function LegalPage({
       <div className="mx-auto max-w-[960px]">
         <div className="flex items-center justify-between border-b border-white/12 pb-6">
           <Link href="/">
-            <Wordmark />
+            <Wordmark className="w-[160px]" priority />
           </Link>
           <Link
             href="/"
