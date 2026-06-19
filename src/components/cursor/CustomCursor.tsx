@@ -8,6 +8,7 @@ const CURSOR_LABELS: Record<string, string> = {
   planet: "EXPLORAR",
   drag: "ARRASTE",
   preview: "ABRIR",
+  reveal: "REVELAR",
 };
 
 export function CustomCursor() {
@@ -20,13 +21,10 @@ export function CustomCursor() {
   const visible = useRef(false);
 
   useEffect(() => {
-    const finePointer = window.matchMedia("(pointer: fine) and (min-width: 1024px)");
-
-    if (!finePointer.matches) {
-      return;
-    }
-
-    document.body.dataset.customCursor = "true";
+    const finePointer = window.matchMedia(
+      "(pointer: fine) and (min-width: 1024px) and (prefers-reduced-motion: no-preference)",
+    );
+    let active = false;
 
     const setCursorState = (state = "default", label = "") => {
       const ring = ringRef.current;
@@ -74,6 +72,10 @@ export function CustomCursor() {
     };
 
     const tick = () => {
+      if (!active) {
+        return;
+      }
+
       const dot = dotRef.current;
       const ring = ringRef.current;
       const labelEl = labelRef.current;
@@ -96,15 +98,27 @@ export function CustomCursor() {
       frame.current = requestAnimationFrame(tick);
     };
 
-    frame.current = requestAnimationFrame(tick);
+    const activate = () => {
+      if (active) {
+        return;
+      }
 
-    window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    window.addEventListener("pointerover", handlePointerOver, { passive: true });
-    window.addEventListener("pointerout", handlePointerOut, { passive: true });
-    window.addEventListener("blur", handleLeave);
-    document.documentElement.addEventListener("mouseleave", handleLeave);
+      active = true;
+      document.body.dataset.customCursor = "true";
+      frame.current = requestAnimationFrame(tick);
+      window.addEventListener("pointermove", handlePointerMove, { passive: true });
+      window.addEventListener("pointerover", handlePointerOver, { passive: true });
+      window.addEventListener("pointerout", handlePointerOut, { passive: true });
+      window.addEventListener("blur", handleLeave);
+      document.documentElement.addEventListener("mouseleave", handleLeave);
+    };
 
-    return () => {
+    const deactivate = () => {
+      if (!active) {
+        return;
+      }
+
+      active = false;
       cancelAnimationFrame(frame.current);
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("pointerover", handlePointerOver);
@@ -112,6 +126,23 @@ export function CustomCursor() {
       window.removeEventListener("blur", handleLeave);
       document.documentElement.removeEventListener("mouseleave", handleLeave);
       delete document.body.dataset.customCursor;
+      handleLeave();
+    };
+
+    const syncCursor = () => {
+      if (finePointer.matches) {
+        activate();
+      } else {
+        deactivate();
+      }
+    };
+
+    syncCursor();
+    finePointer.addEventListener("change", syncCursor);
+
+    return () => {
+      finePointer.removeEventListener("change", syncCursor);
+      deactivate();
     };
   }, []);
 

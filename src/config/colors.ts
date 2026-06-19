@@ -1,13 +1,13 @@
 export const colors = {
   cosmicBlack: "#050507",
   deepSpace: "#090A10",
-  graphite: "#17181E",
-  warmWhite: "#F6F4EF",
-  silver: "#B9BBC5",
-  hyperPurple: "#6D28D9",
+  graphite: "#1B1C22",
+  warmWhite: "#F5F3EE",
+  silver: "#B8BBC4",
+  hyperPurple: "#7546E8",
   electricPurple: "#8B5CF6",
   lavender: "#C4B5FD",
-  electricBlue: "#2563EB",
+  electricBlue: "#4A8FFF",
   iceBlue: "#93C5FD",
   magenta: "#EC4899",
   orange: "#F97316",
@@ -19,9 +19,9 @@ export const colors = {
 
 export const colorDistribution = {
   dark: "45%",
-  neutral: "25%",
+  neutral: "30%",
   purple: "15%",
-  blue: "10%",
+  blue: "5%",
   accents: "5%",
 } as const;
 

@@ -7,9 +7,10 @@ import { motionTokens } from "@/config/motion-tokens";
 import { planetsConfig } from "@/config/planets.config";
 import { PlanetVisual } from "@/components/planets/PlanetVisual";
 import { Wordmark } from "@/components/navigation/Wordmark";
+import { useReducedMotionContext } from "@/components/motion/ReducedMotionProvider";
 
 const criticalAssets = [
-  "/assets/brand/hyper-galaxy-wordmark.svg",
+  "/assets/brand/logo-horizontal-dark.svg",
   "/assets/stars/hero-stars.svg",
   "/assets/planets/hyper-flow.webp",
   "/assets/planets/nova.webp",
@@ -26,6 +27,7 @@ export function HyperPreloader({
 }) {
   const [progress, setProgress] = useState(0);
   const [complete, setComplete] = useState(false);
+  const prefersReducedMotion = useReducedMotionContext();
   const hyperFlow = useMemo(
     () => planetsConfig.find((planet) => planet.id === "hyper-flow") ?? planetsConfig[3],
     [],
@@ -36,7 +38,7 @@ export function HyperPreloader({
     let loaded = 0;
     const total = criticalAssets.length + 1;
     const minimumDelay = new Promise<void>((resolve) => {
-      window.setTimeout(resolve, MINIMUM_PRELOAD_MS);
+      window.setTimeout(resolve, prefersReducedMotion ? 0 : MINIMUM_PRELOAD_MS);
     });
 
     const markLoaded = () => {
@@ -70,13 +72,17 @@ export function HyperPreloader({
           setComplete(true);
           onComplete();
         }
-      }, 420);
+      }, prefersReducedMotion ? 0 : 420);
     });
 
     return () => {
       cancelled = true;
     };
-  }, [onComplete]);
+  }, [onComplete, prefersReducedMotion]);
+
+  if (prefersReducedMotion) {
+    return null;
+  }
 
   return (
     <AnimatePresence>
@@ -125,7 +131,7 @@ export function HyperPreloader({
               animate={{ opacity: complete ? 0 : 1, y: complete ? -8 : 0 }}
               transition={{ duration: motionTokens.durations.fast }}
             >
-              <Wordmark />
+              <Wordmark className="w-[190px]" priority />
             </motion.div>
 
             <motion.div

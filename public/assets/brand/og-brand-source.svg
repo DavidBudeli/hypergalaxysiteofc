@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
+  <title id="title">Hyper Galaxy Open Graph</title>
+  <rect width="1200" height="630" fill="#050507"/>
+  <rect x="72" y="72" width="8" height="486" fill="#7546E8"/>
+  <g transform="translate(112 92) scale(1.35)">
+    <path fill="#F5F3EE" d="M12 18 34 4v46h24V18L80 4v100H58V70H34v34H12z"/>
+    <path d="M110 59c-6-8-14-12-24-12-17 0-29 12-29 29s12 28 29 28c11 0 20-4 26-12V77H90" fill="none" stroke="#7546E8" stroke-width="16"/>
+  </g>
+  <text x="318" y="186" fill="#F5F3EE" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="5">HYPER GALAXY</text>
+  <text x="112" y="382" fill="#F5F3EE" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700">INTELLIGENT SYSTEMS.</text>
+  <text x="112" y="462" fill="#7546E8" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700">STRONGER OUTCOMES.</text>
+  <text x="114" y="540" fill="#B8BBC4" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="4">SOFTWARE / IA / AUTOMAÇÃO / CLOUD</text>
+</svg>

@@ -1,6 +1,6 @@
 export const navigationLinks = [
   { label: "Projetos", href: "#projetos" },
-  { label: "Solucoes", href: "#solucoes" },
+  { label: "Soluções", href: "#solucoes" },
   { label: "Agentes IA", href: "#agentes-ia" },
   { label: "Plataforma", href: "#plataforma" },
   { label: "Nova", href: "#nova" },
@@ -14,7 +14,7 @@ export const navigationActions = {
   },
   login: {
     label: "Entrar",
-    href: "/entrar",
+    href: "#plataforma",
   },
   primaryCta: {
     label: "Iniciar projeto",

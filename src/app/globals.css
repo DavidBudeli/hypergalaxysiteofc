@@ -2,10 +2,10 @@
 
 :root {
   --background: #050507;
-  --foreground: #f6f4ef;
-  --muted: #b9bbc5;
-  --surface: #090a10;
-  --accent: #6d28d9;
+  --foreground: #f5f3ee;
+  --muted: #b8bbc4;
+  --surface: #1b1c22;
+  --accent: #7546e8;
 }
 
 @theme inline {
@@ -21,13 +21,14 @@
 html {
   background: var(--background);
   color: var(--foreground);
+  scroll-padding-top: 72px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  scrollbar-color: rgba(246, 244, 239, 0.26) #050507;
+  scrollbar-color: rgba(245, 243, 238, 0.26) #050507;
 }
 
 ::-webkit-scrollbar {
@@ -136,6 +137,85 @@ body {
     drop-shadow(0 0 34px color-mix(in srgb, var(--planet-accent) 52%, transparent));
 }
 
+:focus-visible {
+  outline: 3px solid #f5f3ee;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #7546e8;
+}
+
+.marquee:hover .marquee-track,
+.marquee:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+.marquee-track {
+  animation: marquee-x var(--marquee-speed, 38s) linear infinite;
+}
+
+.marquee-track-reverse {
+  animation-name: marquee-x-reverse;
+}
+
+.flip-card {
+  perspective: 1400px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateX(var(--tilt-x, 0deg)) rotateY(calc(180deg + var(--tilt-y, 0deg)));
+  }
+
+  .flip-card:hover .flip-front {
+    visibility: hidden;
+  }
+
+  .flip-card:hover .flip-back {
+    visibility: visible;
+  }
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card.is-flipped .flip-front {
+  visibility: hidden;
+}
+
+.flip-face {
+  backface-visibility: hidden;
+  background: var(--card-surface);
+  color: var(--card-ink);
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  visibility: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flip-card:hover .flip-front {
+    visibility: hidden;
+  }
+
+  .flip-card:hover .flip-back {
+    visibility: visible;
+  }
+}
+
+.flip-card.is-flipped .flip-back {
+  visibility: visible;
+}
+
+.nova-character-image {
+  animation: nova-blink 5.4s ease-in-out infinite;
+}
+
 .hero-outline-text {
   -webkit-text-stroke: 1.5px rgba(246, 244, 239, 0.82);
   text-stroke: 1.5px rgba(246, 244, 239, 0.82);
@@ -158,6 +238,63 @@ body {
 
   to {
     transform: translate3d(1.2%, 0.9%, 0) scale(1.018);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}
+
+@keyframes marquee-x-reverse {
+  from {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes nova-blink {
+  0%,
+  44%,
+  48%,
+  100% {
+    filter: brightness(1);
+  }
+
+  46% {
+    filter: brightness(0.82);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-reverse,
+  .planet-visual-image,
+  .planet-visual-surface,
+  .nova-character-image {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .flip-card-inner {
+    transition-duration: 1ms !important;
+  }
+
+  .nova-character-image {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .planet-visual {
+    transition-duration: 1ms !important;
   }
 }
 

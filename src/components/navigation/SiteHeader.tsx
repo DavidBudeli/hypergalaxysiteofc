@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { navigationActions, navigationLinks } from "@/config/navigation.config";
 import { motionTokens } from "@/config/motion-tokens";
@@ -14,6 +14,9 @@ import { Wordmark } from "./Wordmark";
 export function SiteHeader({ ready = true }: { ready?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const menuDialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 18);
@@ -24,10 +27,55 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (!menuOpen) {
+      return;
+    }
+
+    const previousActiveElement = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const dialog = menuDialogRef.current;
+      const focusable = dialog?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (!dialog || !focusable?.length) {
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === first || !dialog.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = "";
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousActiveElement?.focus({ preventScroll: true });
     };
   }, [menuOpen]);
 
@@ -43,21 +91,21 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
         className={cn(
           "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
           scrolled
-            ? "h-[58px] border-b border-white/10 bg-[#050507]/78 backdrop-blur-xl"
-            : "h-16 bg-transparent",
+            ? "h-16 border-b border-white/10 bg-[#050507]/78 backdrop-blur-xl"
+            : "h-[68px] bg-transparent",
         )}
       >
-        <nav className="mx-auto grid h-full max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8 lg:px-10">
-          <Link href="/" aria-label="Hyper Galaxy home" data-cursor="link">
-            <Wordmark />
+        <nav className="mx-auto grid h-full max-w-[1400px] grid-cols-[1fr_auto] items-center px-5 sm:px-8 lg:grid-cols-[minmax(11rem,1fr)_auto_minmax(14rem,1fr)] lg:px-10">
+          <Link href="/" className="inline-flex w-fit items-center py-2" data-cursor="link">
+            <Wordmark priority />
           </Link>
 
-          <div className="hidden items-center gap-7 lg:flex">
+          <div className="hidden items-center gap-5 lg:flex xl:gap-7 2xl:gap-8">
             {navigationLinks.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-white/68 transition-colors hover:text-white"
+                className="whitespace-nowrap text-[13px] font-semibold tracking-[-0.01em] text-white/72 transition-colors hover:text-white"
                 data-cursor="link"
               >
                 {item.label}
@@ -65,24 +113,20 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
             ))}
           </div>
 
-          <div className="hidden items-center justify-end gap-5 lg:flex">
-            <button
-              className="font-mono text-xs uppercase tracking-[0.18em] text-white/54 transition-colors hover:text-white"
-              type="button"
-              data-cursor="link"
-            >
-              {navigationActions.language.current} / {navigationActions.language.alternate}
-            </button>
+          <div className="hidden items-center justify-end gap-5 lg:flex xl:gap-6">
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/54">
+              {navigationActions.language.current}
+            </span>
             <a
               href={navigationActions.login.href}
-              className="text-sm font-medium text-white/62 transition-colors hover:text-white"
+              className="text-[13px] font-semibold text-white/70 transition-colors hover:text-white"
               data-cursor="link"
             >
               {navigationActions.login.label}
             </a>
             <a
               href={navigationActions.primaryCta.href}
-              className="inline-flex h-10 items-center gap-2 bg-[#F6F4EF] px-5 text-sm font-bold uppercase tracking-[0.04em] text-[#050507] transition-colors hover:bg-[#C4B5FD]"
+              className="inline-flex h-10 items-center gap-2 bg-[#F6F4EF] px-5 text-xs font-black uppercase tracking-[0.08em] text-[#050507] transition-colors hover:bg-[#C4B5FD]"
               data-cursor="cta"
             >
               {navigationActions.primaryCta.label}
@@ -92,10 +136,13 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
 
           <div className="flex justify-end lg:hidden">
             <button
+              ref={menuButtonRef}
               type="button"
               className="grid h-10 w-10 place-items-center border border-white/18 text-white"
               onClick={() => setMenuOpen(true)}
               aria-label="Abrir menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
               data-cursor="link"
             >
               <Menu size={24} />
@@ -107,7 +154,12 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
       <AnimatePresence>
         {menuOpen ? (
           <motion.div
+            ref={menuDialogRef}
+            id="mobile-navigation"
             className="fixed inset-0 z-[70] bg-[#050507] px-6 py-5 text-white lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu principal"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
@@ -118,8 +170,9 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
           >
             <div className="absolute bottom-0 right-0 top-0 w-2 bg-[#8B5CF6]" />
             <div className="flex items-center justify-between">
-              <Wordmark />
+              <Wordmark className="w-[140px]" priority />
               <button
+                ref={closeButtonRef}
                 type="button"
                 className="grid h-11 w-11 place-items-center border border-[#C4B5FD] text-white"
                 onClick={() => setMenuOpen(false)}
@@ -135,7 +188,7 @@ export function SiteHeader({ ready = true }: { ready?: boolean }) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-3xl font-semibold leading-none text-white"
+                  className="flex min-h-11 items-center text-3xl font-semibold leading-none text-white"
                   initial={{ y: 18, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{
