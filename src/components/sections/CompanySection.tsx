@@ -49,7 +49,7 @@ export function CompanySection() {
                 <ArrowUpRight size={17} />
               </a>
               <a
-                href="#iniciar-projeto"
+                href="/iniciar-projeto"
                 className="inline-flex h-14 items-center justify-center border border-white/16 px-6 text-sm font-black uppercase tracking-[0.08em] text-[#F6F4EF]"
                 data-cursor="cta"
               >

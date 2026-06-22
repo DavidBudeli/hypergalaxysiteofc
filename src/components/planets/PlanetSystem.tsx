@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useTransform, type MotionValue } from "framer-motion";
 import { X } from "lucide-react";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 
 import { motionTokens } from "@/config/motion-tokens";
 import { planetsConfig, type PlanetConfig, type PlanetKind } from "@/config/planets.config";
@@ -58,7 +58,7 @@ export function PlanetSystem({
             <h3 className="mt-4 text-3xl font-semibold leading-none">{active.name}</h3>
             <p className="mt-4 text-sm leading-6 text-[#B9BBC5]">{active.description}</p>
             <a
-              href="#iniciar-projeto"
+              href="/iniciar-projeto"
               className="mt-5 inline-flex text-xs font-bold uppercase tracking-[0.18em] text-[#F6F4EF]"
               data-cursor="cta"
             >
@@ -131,33 +131,39 @@ function PlanetOrbit({
       data-cursor="planet"
       data-cursor-label="EXPLORAR"
     >
-      <motion.div
-        layoutId={planet.id === "hyper-flow" ? "hyper-flow-planet" : undefined}
-        className="relative"
-        animate={{
-          y:
-            planet.float.direction === "x"
-              ? [0, 0, 0]
-              : [0, -planet.float.amplitude, 0],
-          x:
-            planet.float.direction === "y"
-              ? [0, 0, 0]
-              : [0, planet.float.amplitude * 0.45, 0],
-        }}
-        transition={{
-          duration: planet.float.duration,
-          delay: planet.float.delay,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+      <div
+        className="planet-pointer-shift"
+        style={{ "--planet-depth": Math.max(1, planet.depth + 1) } as CSSProperties}
       >
-        <PlanetVisual
-          planet={planet}
-          size={planet.size.desktop}
-          variant={active ? "active" : "normal"}
-          priority
-        />
-      </motion.div>
+        <motion.div
+          layoutId={planet.id === "hyper-flow" ? "hyper-flow-planet" : undefined}
+          className="relative"
+          animate={{
+            y:
+              planet.float.direction === "x"
+                ? [0, 0, 0]
+                : [0, -planet.float.amplitude, 0],
+            x:
+              planet.float.direction === "y"
+                ? [0, 0, 0]
+                : [0, planet.float.amplitude * 0.55, 0],
+            rotate: [0, planet.rotationSpeed * 70, 0],
+          }}
+          transition={{
+            duration: planet.float.duration,
+            delay: planet.float.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <PlanetVisual
+            planet={planet}
+            size={planet.size.desktop}
+            variant={active ? "active" : "normal"}
+            priority
+          />
+        </motion.div>
+      </div>
       <span className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-white/42">
         {planet.label}
       </span>

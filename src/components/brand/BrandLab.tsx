@@ -406,7 +406,7 @@ function FooterEvidence() {
             <p className="mt-5 max-w-sm text-sm leading-6 text-white/60">Software, inteligência artificial, automação e cloud conectados à operação.</p>
           </div>
           <div className="grid grid-cols-2 gap-x-12 gap-y-4 text-sm text-white/60"><span>Projetos</span><span>Soluções</span><span>Agentes IA</span><span>Plataforma</span><span>Nova</span><span>Contato</span></div>
-          <div className="grid content-start gap-4 text-sm text-white/60"><span>Abrir canal de contato</span><span>GitHub</span></div>
+          <div className="grid content-start gap-4 text-sm text-white/60"><span>Abrir canal de contato</span><span>Enviar briefing</span></div>
         </div>
         <div className="mt-14 flex items-center justify-between border-t border-white/10 pt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
           <p>© 2026 Hyper Galaxy. Todos os direitos reservados.</p>

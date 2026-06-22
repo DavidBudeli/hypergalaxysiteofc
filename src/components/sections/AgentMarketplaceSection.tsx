@@ -246,7 +246,7 @@ export function AgentMarketplaceSection() {
                 </div>
 
                 <a
-                  href="#iniciar-projeto"
+                  href="/iniciar-projeto"
                   className="mt-auto flex h-12 items-center justify-between border-t border-white/16 pt-5 text-xs font-black uppercase tracking-[0.14em]"
                   data-cursor="cta"
                 >

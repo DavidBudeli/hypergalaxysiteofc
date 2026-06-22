@@ -16,11 +16,11 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     }
 
     const lenis = new Lenis({
-      duration: 1.04,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.94,
+      easing: (t: number) => 1 - Math.pow(1 - t, 4),
       smoothWheel: true,
-      wheelMultiplier: 0.82,
-      touchMultiplier: 0.75,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1,
     });
 
     let frame = 0;
@@ -32,8 +32,19 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
     frame = requestAnimationFrame(raf);
 
+    const handleVisibility = () => {
+      if (document.hidden) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibility);
+
     return () => {
       cancelAnimationFrame(frame);
+      document.removeEventListener("visibilitychange", handleVisibility);
       lenis.destroy();
     };
   }, [prefersReducedMotion]);

@@ -20,6 +20,9 @@ export function TechnologyMarqueeSection() {
         <p className="mt-5 max-w-3xl text-2xl font-black uppercase leading-tight md:text-4xl">
           Repertório técnico para conectar software, automações, dados e canais.
         </p>
+        <p className="mt-5 max-w-2xl text-sm leading-6 text-[#17181E]/62">
+          Stack, integrações e tecnologias utilizadas em projetos Hyper Galaxy.
+        </p>
       </SectionTransition>
 
       <div className="mt-12 grid gap-4">

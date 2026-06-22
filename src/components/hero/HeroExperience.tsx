@@ -32,6 +32,8 @@ export function HeroExperience({ ready }: { ready: boolean }) {
   const sweepScale = useTransform(transitionProgress, [0.26, 0.82], [0, 1.55]);
   const sweepOpacity = useTransform(transitionProgress, [0.22, 0.44, 0.86], [0, 0.7, 0]);
   const nextOpacity = useTransform(transitionProgress, [0.54, 0.94], [0, 1]);
+  const starFieldY = useTransform(scrollYProgress, [0, 0.72], [0, 52]);
+  const atmosphereY = useTransform(scrollYProgress, [0, 0.72], [0, -34]);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 1024px)");
@@ -65,18 +67,40 @@ export function HeroExperience({ ready }: { ready: boolean }) {
             target.style.setProperty("--mouse-x", `${(event.clientX - rect.left) / rect.width - 0.5}`);
             target.style.setProperty("--mouse-y", `${(event.clientY - rect.top) / rect.height - 0.5}`);
           }}
+          onPointerLeave={(event) => {
+            event.currentTarget.style.setProperty("--mouse-x", "0");
+            event.currentTarget.style.setProperty("--mouse-y", "0");
+          }}
         >
-          <div
-            className="absolute inset-0 opacity-44"
-            style={{
-              backgroundImage: "url('/assets/stars/hero-stars.svg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              transform:
-                "translate(calc(var(--mouse-x, 0) * -18px), calc(var(--mouse-y, 0) * -14px))",
-            }}
+          <motion.div
+            className="absolute -inset-8"
+            initial={{ opacity: 0, scale: 1.025 }}
+            animate={{ opacity: ready ? 0.48 : 0, scale: ready ? 1 : 1.025 }}
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            style={{ y: prefersReducedMotion ? 0 : starFieldY }}
+          >
+            <div
+              className="hero-star-drift absolute inset-0"
+              style={{
+                backgroundImage: "url('/assets/stars/hero-stars.svg')",
+                backgroundSize: "cover",
+                transform:
+                  "translate(calc(var(--mouse-x, 0) * -20px), calc(var(--mouse-y, 0) * -15px))",
+              }}
+            />
+          </motion.div>
+          <motion.div
+            className="hero-atmosphere-breathe absolute -inset-12 bg-[radial-gradient(circle_at_77%_47%,rgba(117,70,232,0.22),transparent_34%),radial-gradient(circle_at_18%_20%,rgba(74,143,255,0.14),transparent_30%)]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: ready ? 1 : 0 }}
+            transition={{ delay: 0.18, duration: 1.6 }}
+            style={{ y: prefersReducedMotion ? 0 : atmosphereY }}
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_77%_47%,rgba(109,40,217,0.17),transparent_34%),radial-gradient(circle_at_18%_20%,rgba(37,99,235,0.12),transparent_30%)]" />
+          <div className="hero-orbit-field pointer-events-none absolute inset-0" aria-hidden="true">
+            <span className="hero-orbit-dot hero-orbit-dot-one" />
+            <span className="hero-orbit-dot hero-orbit-dot-two" />
+            <span className="hero-orbit-dot hero-orbit-dot-three" />
+          </div>
 
           <div className="relative z-10 mx-auto grid min-h-screen max-w-[1280px] items-center px-6 pb-16 pt-28 sm:px-8 lg:grid-cols-[54%_46%] lg:px-10 lg:pt-20">
             <motion.div
@@ -114,7 +138,7 @@ export function HeroExperience({ ready }: { ready: boolean }) {
 
               <SpringTextReveal ready={ready} delay={0.76}>
                 <div className="mt-8 flex w-full max-w-[23rem] flex-col gap-4 sm:max-w-none sm:flex-row sm:items-center">
-                  <MagneticButton href="#iniciar-projeto" className="w-full sm:w-auto">
+                  <MagneticButton href="/iniciar-projeto" className="w-full sm:w-auto">
                     {homepageCopy.hero.primaryCta}
                   </MagneticButton>
                   <MagneticButton href="#plataforma" variant="secondary" className="w-full sm:w-auto">

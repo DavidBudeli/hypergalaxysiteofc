@@ -124,7 +124,7 @@ export function FlipCard({ service }: { service: Service }) {
             </div>
           </div>
           <a
-            href="#iniciar-projeto"
+            href="/iniciar-projeto"
             className="inline-flex h-12 items-center justify-center gap-2 bg-[#F6F4EF] px-5 text-sm font-black uppercase tracking-[0.08em] text-[#050507]"
             data-cursor="cta"
             tabIndex={flipped ? 0 : -1}

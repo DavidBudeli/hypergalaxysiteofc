@@ -137,6 +137,82 @@ body {
     drop-shadow(0 0 34px color-mix(in srgb, var(--planet-accent) 52%, transparent));
 }
 
+.planet-pointer-shift {
+  transform: translate3d(
+    calc(var(--mouse-x, 0) * var(--planet-depth, 1) * 2.2px),
+    calc(var(--mouse-y, 0) * var(--planet-depth, 1) * 1.8px),
+    0
+  );
+  transition: transform 480ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hero-star-drift {
+  animation: hero-star-drift 30s ease-in-out infinite alternate;
+  will-change: background-position, transform;
+}
+
+.hero-atmosphere-breathe {
+  animation: hero-atmosphere-breathe 9s ease-in-out infinite;
+  background-size: 100% 100%;
+  will-change: background-size, filter;
+}
+
+.hero-orbit-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #f5f3ee;
+  box-shadow: 0 0 18px rgba(117, 70, 232, 0.88);
+  opacity: 0.48;
+}
+
+.hero-orbit-dot-one {
+  left: 48%;
+  top: 18%;
+  animation: hero-orbit-one 18s ease-in-out infinite;
+}
+
+.hero-orbit-dot-two {
+  left: 84%;
+  top: 68%;
+  width: 3px;
+  height: 3px;
+  background: #4a8fff;
+  animation: hero-orbit-two 23s ease-in-out infinite;
+}
+
+.hero-orbit-dot-three {
+  left: 36%;
+  top: 76%;
+  width: 2px;
+  height: 2px;
+  animation: hero-orbit-three 15s ease-in-out infinite;
+}
+
+.briefing-star-field {
+  background-image:
+    radial-gradient(circle at 20% 25%, rgba(117, 70, 232, 0.2), transparent 30rem),
+    url("/assets/stars/hero-stars.svg");
+  background-position: center;
+  background-size: cover;
+  animation: briefing-star-drift 32s ease-in-out infinite alternate;
+}
+
+.briefing-orbit {
+  animation: briefing-orbit-pulse 8s ease-in-out infinite;
+}
+
+.briefing-orbit-two {
+  animation: briefing-orbit-dot 12s ease-in-out infinite;
+}
+
+.final-cta-planet {
+  animation: final-cta-float 9s ease-in-out infinite;
+  will-change: transform;
+}
+
 :focus-visible {
   outline: 3px solid #f5f3ee;
   outline-offset: 3px;
@@ -150,6 +226,7 @@ body {
 
 .marquee-track {
   animation: marquee-x var(--marquee-speed, 38s) linear infinite;
+  will-change: transform;
 }
 
 .marquee-track-reverse {
@@ -241,6 +318,111 @@ body {
   }
 }
 
+@keyframes hero-star-drift {
+  from {
+    background-position: 48% 48%;
+  }
+
+  to {
+    background-position: 52% 54%;
+  }
+}
+
+@keyframes hero-atmosphere-breathe {
+  0%,
+  100% {
+    background-size: 100% 100%;
+    filter: saturate(0.92) brightness(0.9);
+  }
+
+  50% {
+    background-size: 106% 106%;
+    filter: saturate(1.12) brightness(1.08);
+  }
+}
+
+@keyframes hero-orbit-one {
+  0%,
+  100% {
+    transform: translate3d(-16px, 12px, 0);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate3d(34px, -22px, 0);
+    opacity: 0.78;
+  }
+}
+
+@keyframes hero-orbit-two {
+  0%,
+  100% {
+    transform: translate3d(12px, -24px, 0);
+  }
+
+  50% {
+    transform: translate3d(-38px, 18px, 0);
+  }
+}
+
+@keyframes hero-orbit-three {
+  0%,
+  100% {
+    transform: translate3d(-8px, -8px, 0);
+    opacity: 0.22;
+  }
+
+  50% {
+    transform: translate3d(22px, 14px, 0);
+    opacity: 0.64;
+  }
+}
+
+@keyframes briefing-star-drift {
+  from {
+    background-position: 48% 48%;
+  }
+
+  to {
+    background-position: 54% 52%;
+  }
+}
+
+@keyframes briefing-orbit-pulse {
+  0%,
+  100% {
+    transform: scale(0.96) rotate(-4deg);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1.04) rotate(5deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes briefing-orbit-dot {
+  0%,
+  100% {
+    transform: translate3d(-18px, 26px, 0);
+  }
+
+  50% {
+    transform: translate3d(36px, -32px, 0);
+  }
+}
+
+@keyframes final-cta-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translate3d(-10px, -18px, 0) rotate(2deg);
+  }
+}
+
 @keyframes marquee-x {
   from {
     transform: translate3d(0, 0, 0);
@@ -277,6 +459,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .marquee-track-reverse,
+  .hero-star-drift,
+  .hero-atmosphere-breathe,
+  .hero-orbit-dot,
+  .briefing-star-field,
+  .briefing-orbit,
+  .final-cta-planet,
   .planet-visual-image,
   .planet-visual-surface,
   .nova-character-image {
@@ -295,6 +483,11 @@ body {
 
   .planet-visual {
     transition-duration: 1ms !important;
+  }
+
+  .planet-pointer-shift {
+    transform: none !important;
+    transition: none !important;
   }
 }
 

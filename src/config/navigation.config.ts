@@ -18,6 +18,6 @@ export const navigationActions = {
   },
   primaryCta: {
     label: "Iniciar projeto",
-    href: "#iniciar-projeto",
+    href: "/iniciar-projeto",
   },
 } as const;
